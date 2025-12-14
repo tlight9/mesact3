@@ -15,7 +15,7 @@ def load(parent):
 				if os.path.splitext(file)[1] in firmware:
 					parent.firmwareCB.addItem(os.path.basename(file), file)
 			parent.firmwarePTE.clear()
-			parent.firmwarePTE.appendPlainText(f'Firmware for {parent.boardCB.currentText()} Loaded')
+			parent.firmwareTW.setCurrentIndex(0)
 			if parent.read_hmid_gb.isEnabled(): # set mesaflash tools on if installed
 				parent.firmwareGB.setEnabled(True)
 		else:

@@ -4,7 +4,7 @@ from libmesact import utilities
 from libmesact import firmware
 
 def boardChanged(parent, index):
-
+3.2.1
 	if index > 0: # set common items for all boards
 		parent.board_name = parent.boardCB.currentText()
 		parent.board_hal_name = parent.boardCB.currentData()
@@ -15,8 +15,6 @@ def boardChanged(parent, index):
 			parent.read_hmid_gb.setEnabled(True)
 			firmware.load(parent)
 
-
-
 	match index:
 		case 0:
 			print('no board selected')
@@ -26,99 +24,126 @@ def boardChanged(parent, index):
 			parent.board_name = None
 			parent.board_hal_name = None
 			parent.mesaflash_name = None
-		case 1: # 5i25
+		case 1: # 5i25 2 25 pin expansion ports
 			print('5i25 selected')
 			address(parent, None)
 			daughter_boards(parent, 'P2' , 'P3')
-			set_io(parent, None, False, False, None, False)
+			set_io(parent, None, False, False, None, False, False)
 			parent.mesaflash_name = '5i25'
-		case 2: # 5i25T
+			parent.mesaflash_version = '3.4.2'
+		case 2: # 5i25T 2 25 pin expansion ports
 			print('5i25T selected')
 			address(parent, None)
 			daughter_boards(parent, 'P2' , 'P3')
-			set_io(parent, None, False, False, None, False)
+			set_io(parent, None, False, False, None, False, False)
 			parent.mesaflash_name = '5i25t'
-		case 3: # 6i25
+			# parent.mesaflash_version = 'FIXME'
+		case 3: # 6i25 2 25 pin expansion ports
 			print('6i25 selected')
 			address(parent, None)
 			daughter_boards(parent, 'P2' , 'P3')
-			set_io(parent, None, False, False, None, False)
+			set_io(parent, None, False, False, None, False, False)
 			parent.mesaflash_name = '5i25'
-		case 4: # 7c80
+			parent.mesaflash_version = '3.4.2'
+		case 4: # 7c80 1 25 pin expansion port
+			# 6 step/dir 24 inputs 8 outputs 1 potentiometer spindle 1 encoder
 			print('7c80 selected')
 			address(parent, 'spi')
-			# FIXME dunno what daughter boards there are
-			daughter_boards(parent, None , None)
-			set_io(parent, None, False, False, None, False)
+			daughter_boards(parent, 'P1' , None)
+			set_io(parent, 24, False, False, 8, False, False)
 			parent.mesaflash_name = '7c80'
-		case 5: # 7c81
+			parent.mesaflash_version = '3.4.2'
+		case 5: # 7c81 3 25 pin expansion ports
 			print('7c81 selected')
 			address(parent, 'spi')
-			# FIXME dunno what daughter boards there are
-			daughter_boards(parent, None , None)
-			set_io(parent, None, False, False, None, False)
+			daughter_boards(parent, 'P1' , 'P2')
+			set_io(parent, None, False, False, None, False, False)
 			parent.mesaflash_name = '7c81'
-		case 6: # 7i76E 5 step/dir 32 inputs 16 outputs 1 potentiometer spindle 1 encoder
+			parent.mesaflash_version = '3.4.2'
+		case 6: # 7i76E 2 25 pin expansion ports
+			#5 step/dir 32 inputs 16 outputs 1 potentiometer spindle 1 encoder
 			print('7i76E selected')
 			address(parent, 'ip')
 			daughter_boards(parent, 'P1' , 'P2')
-			set_io(parent, 32, True, False, 16, True)
+			set_io(parent, 32, True, False, 16, True, False)
 			parent.mesaflash_name = '7i76e'
-		case 7: # 7i76EU
+			parent.mesaflash_version = '3.4.2'
+		case 7: # 7i76EU 2 25 pin expansion ports
+			#5 step/dir 32 inputs 16 outputs 1 potentiometer spindle 1 encoder
 			print('7i76EU selected')
 			address(parent, 'ip')
 			daughter_boards(parent, 'P1' , 'P3')
+			set_io(parent, 32, True, False, 16, True, True)
 			parent.mesaflash_name = '7i76eu'
-		case 8: # 7i92
+			parent.mesaflash_version = '3.5.2'
+		case 8: # 7i92 2 25 pin expansion ports
 			print('7i92 selected')
 			address(parent, 'ip')
 			daughter_boards(parent, 'P1' , 'P2')
+			set_io(parent, None, False, False, None, False, False)
 			parent.mesaflash_name = '7i92'
-		case 9: # 7i92T
+			parent.mesaflash_version = '3.4.2'
+		case 9: # 7i92T 2 25 pin expansion ports
 			print('7i92T selected')
 			address(parent, 'ip')
 			daughter_boards(parent, 'P1' , 'P2')
+			set_io(parent, None, False, False, None, False, False)
 			parent.mesaflash_name = '7i92t'
-		case 10: # 7i93
-			print('7i93 selected')
-			address(parent, 'ip')
-			daughter_boards(parent, 'P1' , 'P2')
-			parent.mesaflash_name = '7i93'
-		case 11: # 7i95
+			parent.mesaflash_version = '3.4.5'
+		case 10: # 7i95 1 25 pin expansion port
+			# 6 step/dir, 6 encoders, 24 inputs 6 outputs
 			print('7i95 selected')
 			address(parent, 'ip')
 			daughter_boards(parent, 'P1' , None)
+			# FIXME check for invert etc
+			set_io(parent, 24, False, False, 6, False, False)
 			parent.mesaflash_name = '7i95'
-		case 12: # 7i95T
+			parent.mesaflash_version = '3.4.2'
+		case 11: # 7i95T 1 25 pin expansion port
+			# 6 step/dir, 6 encoders, 24 inputs 6 outputs
 			print('7i95T selected')
 			address(parent, 'ip')
 			daughter_boards(parent, 'P1' , None)
+			set_io(parent, 24, False, False, 6, False, False)
 			parent.mesaflash_name = '7i95t'
-		case 13: # 7i96
+			parent.mesaflash_version = '3.4.7'
+		case 12: # 7i96 1 25 pin expansion port
+			# 5 step/dir, 11 inputs 6 outputs
 			print('7i96 selected')
 			address(parent, 'ip')
 			daughter_boards(parent, 'P1' , None)
+			set_io(parent, 11, False, False, 6, False, False)
 			parent.mesaflash_name = '7i96'
-		case 14: # 7i96S
+			parent.mesaflash_version = '3.4.2'
+		case 13: # 7i96S 1 25 pin expansion port
+			# 5 step/dir, 11 inputs 6 outputs 1 potentiometer spindle 1 encoder
 			print('7i96S selected')
 			address(parent, 'ip')
 			daughter_boards(parent, 'P1' , None)
+			set_io(parent, 11, False, False, 6, False, False)
 			parent.mesaflash_name = '7i96s'
-		case 15: # 7i97
+			parent.mesaflash_version = '3.4.2'
+		case 14: # 7i97 1 25 pin expansion port
+			# 6 analog/encoder 16 inputs 6 outputs
 			print('7i97 selected')
 			address(parent, 'ip')
 			daughter_boards(parent, 'P1' , None)
+			set_io(parent, 16, False, False, 6, False, False)
 			parent.mesaflash_name = '7i97'
-		case 16: # 7i97T
+			parent.mesaflash_version = '3.4.2'
+		case 15: # 7i97T 1 25 pin expansion port
+			# 6 analog/encoder 16 inputs 6 outputs
 			address(parent, 'ip')
 			print('7i97T selected')
 			address(parent, 'ip')
 			daughter_boards(parent, 'P2' , None)
+			set_io(parent, 16, False, False, 6, False, False)
 			parent.mesaflash_name = '7i97t'
-		case 17: # 7i98
+		case 16: # 7i98 3 25 pin expansion ports
 			print('7i98 selected')
 			address(parent, 'ip')
 			daughter_boards(parent, 'P1' , 'P2')
+			set_io(parent, None, False, False, None, False, False)
 			parent.mesaflash_name = '7i98'
 
 
@@ -176,25 +201,26 @@ def daughter_boards(parent, port_1 , port_2):
 		for item in boards:
 			parent.daughterCB_1.addItem(item[0], item[1])
 
-def set_io(parent, inputs, i_invert, i_debounce, outputs, o_invert):
+def set_io(parent, inputs, i_invert, i_debounce, outputs, o_invert, o_dir):
 	# inputs, input invert, input debounce, outputs, output invert
 	# first thing set all to disabled
-	for i in range(32):
+	for i in range(32): # FIXME setVisible invert, debounce and output type
 		getattr(parent, f'c0_input_{i}').setEnabled(False)
-		getattr(parent, f'c0_input_invert_{i}').setEnabled(False)
-		getattr(parent, f'c0_input_debounce_{i}').setEnabled(False)
+		getattr(parent, f'c0_input_invert_{i}').setVisible(False)
+		getattr(parent, f'c0_input_debounce_{i}').setVisible(False)
 	for i in range(16):
 		getattr(parent, f'c0_output_{i}').setEnabled(False)
-		getattr(parent, f'c0_output_invert_{i}').setEnabled(False)
+		getattr(parent, f'c0_output_invert_{i}').setVisible(False)
+		getattr(parent, f'c0_output_type_{i}').setVisible(False)
 
 	if inputs:
 		parent.c0_JointTW.setTabVisible(7, True)
 		for i in range(inputs):
 			getattr(parent, f'c0_input_{i}').setEnabled(True)
 			if i_invert:
-				getattr(parent, f'c0_input_invert_{i}').setEnabled(True)
+				getattr(parent, f'c0_input_invert_{i}').setVisible(True)
 			if i_debounce:
-				getattr(parent, f'c0_input_debounce_{i}').setEnabled(True)
+				getattr(parent, f'c0_input_debounce_{i}').setVisible(True)
 	else:
 		parent.c0_JointTW.setTabVisible(7, False)
 	if outputs:
@@ -202,9 +228,12 @@ def set_io(parent, inputs, i_invert, i_debounce, outputs, o_invert):
 		for i in range(outputs):
 			getattr(parent, f'c0_output_{i}').setEnabled(True)
 			if o_invert:
-				getattr(parent, f'c0_output_invert_{i}').setEnabled(True)
+				getattr(parent, f'c0_output_invert_{i}').setVisible(True)
+			if o_dir:
+				getattr(parent, f'c0_output_type_{i}').setVisible(True)
 	else:
 		parent.c0_JointTW.setTabVisible(8, False)
+
 
 
 
