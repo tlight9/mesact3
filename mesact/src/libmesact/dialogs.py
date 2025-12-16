@@ -25,8 +25,8 @@ QMessageBox::Retry	0x00080000	A "Retry" button defined with the AcceptRole.
 QMessageBox::Ignore	0x00100000	An "Ignore" button defined with the AcceptRole.
 '''
 
-def msg_open_abort_cancel(msg, title):
-	msgBox = QMessageBox()
+def msg_open_abort_cancel(parent, msg, title):
+	msgBox = QMessageBox(parent)
 	msgBox.setIcon(QMessageBox.Icon.Warning)
 	msgBox.setWindowTitle(title)
 	msgBox.setText(msg)
@@ -40,7 +40,7 @@ def msg_open_abort_cancel(msg, title):
 	else:
 		return False
 
-def msg_open_cancel(msg, title):
+def msg_open_cancel(parent, msg, title):
 	msgBox = QMessageBox()
 	msgBox.setIcon(QMessageBox.Icon.Warning)
 	msgBox.setWindowTitle(title)
@@ -53,7 +53,7 @@ def msg_open_cancel(msg, title):
 	else:
 		return False
 
-def msg_cancel_ok(text, title):
+def msg_cancel_ok(parent, text, title):
 	msgBox = QMessageBox()
 	msgBox.setIcon(QMessageBox.Icon.Warning)
 	msgBox.setWindowTitle(title)
@@ -66,7 +66,7 @@ def msg_cancel_ok(text, title):
 	else:
 		return False
 
-def msg_error_ok(text, title=None):
+def msg_error_ok(parent, text, title=None):
 	msgBox = QMessageBox()
 	msgBox.setIcon(QMessageBox.Icon.Warning)
 	msgBox.setWindowTitle(title)
@@ -78,7 +78,7 @@ def msg_error_ok(text, title=None):
 	else:
 		return False
 
-def msg_question(text, title=None): # unused function
+def msg_question(parent, text, title=None): # unused function
 	msgBox = QMessageBox()
 	msgBox.setIcon(QMessageBox.Icon.Question)
 	msgBox.setWindowTitle(title)
@@ -91,7 +91,7 @@ def msg_question(text, title=None): # unused function
 	else:
 		return False
 
-def msg_yes_no(text, title=None):
+def msg_yes_no(parent, text, title=None):
 	msgBox = QMessageBox()
 	msgBox.setIcon(QMessageBox.Icon.Warning)
 	msgBox.setWindowTitle(title)
@@ -104,21 +104,21 @@ def msg_yes_no(text, title=None):
 	else:
 		return False
 
-def msg_yes_no_check(title, body_text, chkbx_text):
+def msg_yes_no_check(parent, text, title, chkbx_text):
 	chkBox = QCheckBox()
 	chkBox.setText(chkbx_text)
 	msgBox = QMessageBox()
 	msgBox.setCheckBox(chkBox)
 	msgBox.setIcon(QMessageBox.Icon.Warning)
 	msgBox.setWindowTitle(title)
-	msgBox.setText(body_text)
+	msgBox.setText(text)
 	msgBox.setStandardButtons(QMessageBox.StandardButton.Yes |
 	QMessageBox.StandardButton.No)
 	returnValue = msgBox.exec()
 	answer = True if returnValue == QMessageBox.StandardButton.Yes else False
 	return answer, chkBox.isChecked()
 
-def msg_ok(msg, title=None):
+def msg_ok(parent, msg, title=None):
 	# dialogs.msg_ok(msg, 'title')
 	msgBox = QMessageBox()
 	msgBox.setIcon(QMessageBox.Icon.Information)

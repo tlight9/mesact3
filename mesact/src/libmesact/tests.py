@@ -17,28 +17,28 @@ def test_dialogs(parent):
 	name = parent.sender().objectName()
 	match name:
 		case 'msg_open_abort_cancel_pb':
-			result = dialogs.msg_open_abort_cancel('Test', 'Title')
+			result = dialogs.msg_open_abort_cancel(parent, 'Test', 'Title')
 			print(result)
 		case 'msg_open_cancel_pb':
-			result = dialogs.msg_open_cancel('Test', 'Title')
+			result = dialogs.msg_open_cancel(parent, 'Test', 'Title')
 			print(result)
 		case 'msg_cancel_ok_pb':
-			result = dialogs.msg_cancel_ok('Test', 'Title')
+			result = dialogs.msg_cancel_ok(parent, 'Test', 'Title')
 			print(result)
 		case 'msg_error_ok_pb':
-			result = dialogs.msg_error_ok('Test', 'Title')
+			result = dialogs.msg_error_ok(parent, 'Test', 'Title')
 			print(result)
 		case 'msg_question_pb':
-			result = dialogs.msg_question('Test', 'Title')
+			result = dialogs.msg_question(parent, 'Test', 'Title')
 			print(result)
 		case 'msg_yes_no_pb':
-			result = dialogs.msg_yes_no('Test', 'Title')
+			result = dialogs.msg_yes_no(parent, 'Test', 'Title')
 			print(result)
 		case 'msg_yes_no_check_pb':
-			result = dialogs.msg_yes_no_check('Test', 'Title', 'Text')
+			result = dialogs.msg_yes_no_check(parent, 'Test', 'Title', 'Text')
 			print(result)
 		case 'msg_ok_pb':
-			result = dialogs.msg_ok('Test', 'Title')
+			result = dialogs.msg_ok(parent, 'Test', 'Title')
 			print(result)
 
 
