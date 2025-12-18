@@ -40,3 +40,12 @@ def select_dir(parent):
 	else:
 		return False
 
+def open_manual(parent):
+	if parent.installed:
+		doc = os.path.join(parent.docs_path, 'mesact.pdf.gz')
+	else:
+		doc = os.path.join(parent.docs_path, 'mesact.pdf')
+	subprocess.call(('xdg-open', doc))
+
+
+

@@ -14,9 +14,10 @@ def connect(parent):
 	parent.msg_yes_no_check_pb.clicked.connect(partial(test_dialogs, parent))
 	parent.msg_ok_pb.clicked.connect(partial(test_dialogs, parent))
 
-	parent.amd64_deb_pb.clicked.connect(partial(download.download_deb, parent))
-	parent.armhf_deb_pb.clicked.connect(partial(download.download_deb, parent))
-	parent.arm64_deb_pb.clicked.connect(partial(download.download_deb, parent))
+	parent.amd64_deb_pb.clicked.connect(partial(download.download_deb, 'amd64', parent))
+	parent.armhf_deb_pb.clicked.connect(partial(download.download_deb, 'armhf', parent))
+	parent.arm64_deb_pb.clicked.connect(partial(download.download_deb, 'arm64', parent))
+	parent.bad_url_pb.clicked.connect(partial(download.download_deb, parent))
 	parent.download_firmware_pb.clicked.connect(partial(download.download_firmware, parent))
 
 def test_dialogs(parent):

@@ -14,6 +14,7 @@ class Downloader(QThread):
 	setTotalProgress = pyqtSignal(int)
 	setCurrentProgress = pyqtSignal(int)
 	succeeded = pyqtSignal()
+	failed = pyqtSignal(str)
 
 	def __init__(self, url, filename):
 		super().__init__()
@@ -44,28 +45,7 @@ class Downloader(QThread):
 					self.setCurrentProgress.emit(read_bytes) # Update progress bar value
 				self.succeeded.emit()
 		except Exception as e:
-			# Handle exceptions here (e.g., emit an error signal) FIXME make this a dialog
-			print(f"Download failed: {e}")
-
-def url_exists(url):
-	try:
-		# Use a HEAD request to avoid downloading the entire page content
-		req = urllib.request.Request(url, method='HEAD')
-		with urllib.request.urlopen(req) as response:
-			# Check if the status code indicates success (2xx range) or a redirect (3xx range)
-			return 200 <= response.getcode() < 400, 'Success'
-	except HTTPError as e:
-		# Client error (e.g., 404 Not Found, 403 Forbidden) or server error (5xx)
-		#print(f"HTTP Error: {e.code}")
-		return False, e.code
-	except URLError as e:
-		# Other errors (e.g., connection issue, unknown host)
-		#print(f"URL Error: {e.reason}")
-		return False, e.reason
-	except ValueError as e:
-		# Invalid URL format (missing scheme, etc.)
-		#print(f"Invalid URL: {e}")
-		return False, e
+			self.failed.emit(f'Download failed: {e}')
 
 def download_firmware(parent):
 	# print(f' {}')
@@ -78,19 +58,18 @@ def download_firmware(parent):
 			lib_path = os.path.join(os.path.expanduser('~'), f'.local/lib/libmesact/{board}')
 			if os.path.isdir(lib_path): # delete the directory and files
 				subprocess.run(["rm", "-rf", lib_path])
+
 			# Initialize and run the downloader thread
 			parent.downloader = Downloader(url, destination)
 			parent.downloader.setTotalProgress.connect(partial(set_max_progress, parent))
 			parent.downloader.setCurrentProgress.connect(partial(update_progress, parent))
 			parent.downloader.succeeded.connect(partial(download_firmware_succeeded, destination, lib_path, parent))
+			parent.downloader.failed.connect(partial(download_failed, parent))
 			parent.downloader.start()
-
 	else:
 		dialogs.msg_ok(parent, 'Select a Board\nto download firmware', 'Firmware Download')
 
-
-def download_deb(parent):
-	deb = parent.sender().objectName().split('_')[0]
+def download_deb(parent, deb):
 	home_dir = os.path.expanduser("~") # Start in the user's home directory
 	directory = QFileDialog.getExistingDirectory(parent, "Select Directory", home_dir)
 
@@ -106,7 +85,24 @@ def download_deb(parent):
 	parent.downloader = Downloader(url, destination)
 	parent.downloader.setTotalProgress.connect(partial(set_max_progress, parent))
 	parent.downloader.setCurrentProgress.connect(partial(update_progress, parent))
-	parent.downloader.succeeded.connect(partial(download_deb_finished, parent))
+	parent.downloader.succeeded.connect(partial(download_succeeded, parent))
+	parent.downloader.failed.connect(partial(download_failed, parent))
+	parent.downloader.start()
+
+def download_manual(manual, parent):
+	home_dir = os.path.expanduser("~") # Start in the user's home directory
+	directory = QFileDialog.getExistingDirectory(parent, "Select Directory", home_dir)
+
+	if directory:
+		destination = os.path.join(directory, manual)
+		url = f'http://www.mesanet.com/pdf/parallel/{manual}'
+
+	# Initialize and run the downloader thread
+	parent.downloader = Downloader(url, destination)
+	parent.downloader.setTotalProgress.connect(partial(set_max_progress, parent))
+	parent.downloader.setCurrentProgress.connect(partial(update_progress, parent))
+	parent.downloader.succeeded.connect(partial(download_succeeded, parent))
+	parent.downloader.failed.connect(partial(download_failed, parent))
 	parent.downloader.start()
 
 def set_max_progress(parent, total_size):
@@ -128,11 +124,18 @@ def download_firmware_succeeded(destination, lib_path, parent):
 	firmware.load(parent) # update firmware tab
 	result = dialogs.msg_ok(parent, 'Download Complete', 'File Download')
 	parent.progress_bar.setValue(0)
+	parent.statusbar.showMessage('Download Complete')
 
-def download_deb_finished(parent):
+def download_succeeded(parent):
 	#self.label.setText("Status: Download Complete!")
 	#self.button.setEnabled(True)
 	parent.progress_bar.setValue(parent.progress_bar.maximum())
 	result = dialogs.msg_ok(parent, 'Download Complete', 'File Download')
 	parent.progress_bar.setValue(0)
+	parent.statusbar.showMessage('Download Complete')
+
+def download_failed(parent, failure):
+	dialogs.msg_ok(parent, failure, 'HTTP Error')
+	parent.statusbar.showMessage(failure)
+
 

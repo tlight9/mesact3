@@ -42,7 +42,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>12</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -43842,8 +43842,8 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>36</width>
+                    <height>18</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL"/>
@@ -45098,16 +45098,16 @@ auto enp2s0
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="download_firmware_pb">
+            <widget class="QPushButton" name="bad_url_pb">
              <property name="text">
-              <string>Firmware</string>
+              <string>Bad URL</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_5">
+            <widget class="QPushButton" name="download_firmware_pb">
              <property name="text">
-              <string>PushButton</string>
+              <string>Firmware</string>
              </property>
             </widget>
            </item>
@@ -45175,11 +45175,82 @@ auto enp2s0
     <property name="title">
      <string>Downloads</string>
     </property>
+    <widget class="QMenu" name="menuMesa_Manuals">
+     <property name="title">
+      <string>Mesa Manuals</string>
+     </property>
+     <widget class="QMenu" name="menuMain_Boards">
+      <property name="title">
+       <string>Main Boards</string>
+      </property>
+      <addaction name="action5i25"/>
+      <addaction name="action5i25T"/>
+      <addaction name="action6i25"/>
+      <addaction name="action7c80"/>
+      <addaction name="action7i81"/>
+      <addaction name="action7i92T"/>
+      <addaction name="action7i98"/>
+     </widget>
+     <widget class="QMenu" name="menuCombo_Boards">
+      <property name="title">
+       <string>Combo Boards</string>
+      </property>
+      <addaction name="action7c81"/>
+      <addaction name="action7i76E"/>
+      <addaction name="action7i76EU"/>
+      <addaction name="action7i95"/>
+      <addaction name="action7i95T"/>
+      <addaction name="action7i96"/>
+      <addaction name="action7i96S"/>
+      <addaction name="action7i97"/>
+      <addaction name="action7i97T"/>
+     </widget>
+     <widget class="QMenu" name="menuDaughter_Boards">
+      <property name="title">
+       <string>Daughter Boards</string>
+      </property>
+      <addaction name="action7i76"/>
+      <addaction name="action7i77"/>
+      <addaction name="action7i78"/>
+      <addaction name="action7i85"/>
+      <addaction name="action7i85S"/>
+      <addaction name="action7i88"/>
+      <addaction name="action7i89"/>
+     </widget>
+     <widget class="QMenu" name="menuSmart_Serial_Boards">
+      <property name="title">
+       <string>Smart Serial Boards</string>
+      </property>
+      <addaction name="action7i64"/>
+      <addaction name="action7i69"/>
+      <addaction name="action7i70"/>
+      <addaction name="action7i71"/>
+      <addaction name="action7i72"/>
+      <addaction name="action7i73"/>
+      <addaction name="action7i74"/>
+      <addaction name="action7i83"/>
+      <addaction name="action7i84"/>
+      <addaction name="action7i87"/>
+     </widget>
+     <widget class="QMenu" name="menuMisc_Boards">
+      <property name="title">
+       <string>Misc. Boards</string>
+      </property>
+      <addaction name="action7i77ISOL"/>
+      <addaction name="actionTHCAD2"/>
+     </widget>
+     <addaction name="menuMain_Boards"/>
+     <addaction name="menuCombo_Boards"/>
+     <addaction name="menuDaughter_Boards"/>
+     <addaction name="menuSmart_Serial_Boards"/>
+     <addaction name="menuMisc_Boards"/>
+    </widget>
     <addaction name="actionMesaCT_PC_64_bit"/>
     <addaction name="actionMesaCT_Rpi_32_bit"/>
     <addaction name="actionMesaCT_Rpi_64_bit"/>
     <addaction name="actionFirmware"/>
     <addaction name="actionBoard_Images"/>
+    <addaction name="menuMesa_Manuals"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
@@ -45275,6 +45346,181 @@ auto enp2s0
   <action name="actionDocuments">
    <property name="text">
     <string>Documents</string>
+   </property>
+  </action>
+  <action name="action5i25">
+   <property name="text">
+    <string>5i25</string>
+   </property>
+  </action>
+  <action name="action5i25T">
+   <property name="text">
+    <string>5i25T</string>
+   </property>
+  </action>
+  <action name="action6i25">
+   <property name="text">
+    <string>6i25</string>
+   </property>
+  </action>
+  <action name="action7i81">
+   <property name="text">
+    <string>7i92</string>
+   </property>
+  </action>
+  <action name="action7c81">
+   <property name="text">
+    <string>7c81</string>
+   </property>
+  </action>
+  <action name="action7i76E">
+   <property name="text">
+    <string>7i76E</string>
+   </property>
+  </action>
+  <action name="action7i76EU">
+   <property name="text">
+    <string>7i76EU</string>
+   </property>
+  </action>
+  <action name="action7i95">
+   <property name="text">
+    <string>7i95</string>
+   </property>
+  </action>
+  <action name="action7i95T">
+   <property name="text">
+    <string>7i95T</string>
+   </property>
+  </action>
+  <action name="action7i96">
+   <property name="text">
+    <string>7i96</string>
+   </property>
+  </action>
+  <action name="action7i96S">
+   <property name="text">
+    <string>7i96S</string>
+   </property>
+  </action>
+  <action name="action7i97">
+   <property name="text">
+    <string>7i97</string>
+   </property>
+  </action>
+  <action name="action7i97T">
+   <property name="text">
+    <string>7i97T</string>
+   </property>
+  </action>
+  <action name="action7i76">
+   <property name="text">
+    <string>7i76</string>
+   </property>
+  </action>
+  <action name="action7i77">
+   <property name="text">
+    <string>7i77</string>
+   </property>
+  </action>
+  <action name="action7i78">
+   <property name="text">
+    <string>7i78</string>
+   </property>
+  </action>
+  <action name="action7i85">
+   <property name="text">
+    <string>7i85</string>
+   </property>
+  </action>
+  <action name="action7i85S">
+   <property name="text">
+    <string>7i85S</string>
+   </property>
+  </action>
+  <action name="action7i64">
+   <property name="text">
+    <string>7i64</string>
+   </property>
+  </action>
+  <action name="action7i69">
+   <property name="text">
+    <string>7i69</string>
+   </property>
+  </action>
+  <action name="action7i70">
+   <property name="text">
+    <string>7i70</string>
+   </property>
+  </action>
+  <action name="action7i71">
+   <property name="text">
+    <string>7i71</string>
+   </property>
+  </action>
+  <action name="action7i72">
+   <property name="text">
+    <string>7i72</string>
+   </property>
+  </action>
+  <action name="action7i73">
+   <property name="text">
+    <string>7i73</string>
+   </property>
+  </action>
+  <action name="action7i74">
+   <property name="text">
+    <string>7i74</string>
+   </property>
+  </action>
+  <action name="action7i83">
+   <property name="text">
+    <string>7i83</string>
+   </property>
+  </action>
+  <action name="action7i84">
+   <property name="text">
+    <string>7i84</string>
+   </property>
+  </action>
+  <action name="action7i87">
+   <property name="text">
+    <string>7i87</string>
+   </property>
+  </action>
+  <action name="action7i77ISOL">
+   <property name="text">
+    <string>7i77ISOL</string>
+   </property>
+  </action>
+  <action name="actionTHCAD2">
+   <property name="text">
+    <string>THCAD2</string>
+   </property>
+  </action>
+  <action name="action7i92T">
+   <property name="text">
+    <string>7i92T</string>
+   </property>
+  </action>
+  <action name="action7c80">
+   <property name="text">
+    <string>7c80</string>
+   </property>
+  </action>
+  <action name="action7i98">
+   <property name="text">
+    <string>7i98</string>
+   </property>
+  </action>
+  <action name="action7i88">
+   <property name="text">
+    <string>7i88</string>
+   </property>
+  </action>
+  <action name="action7i89">
+   <property name="text">
+    <string>7i89</string>
    </property>
   </action>
  </widget>

@@ -1,11 +1,4 @@
 import shutil
-from functools import partial
-
-from libmesact import boards
-from libmesact import daughters
-from libmesact import downloads
-
-from libmesact import utilities
 
 def hide(parent):
 	# set main tab visibility
@@ -225,22 +218,6 @@ def combos(parent):
 
 	for item in debug:
 		parent.debugCB.addItem(item[0], item[1])
-
-def connections(parent):
-	# Menu Items
-	parent.actionNew.triggered.connect(partial(utilities.new_config, parent))
-	parent.actionMesaCT_PC_64_bit.triggered.connect(partial(downloads.download_deb, 'amd64', parent))
-	parent.actionMesaCT_Rpi_32_bit.triggered.connect(partial(downloads.download_deb, 'armhf', parent))
-	parent.actionMesaCT_Rpi_64_bit.triggered.connect(partial(downloads.download_deb, 'arm64', parent))
-	#parent.actionMesaCT_PC_64_bit.triggered.connect(partial(downloads.downloadAmd64Deb, parent))
-	#parent.actionMesaCT_Rpi_32_bit.triggered.connect(partial(downloads.downloadArmhDeb, parent))
-	#parent.actionMesaCT_Rpi_64_bit.triggered.connect(partial(downloads.downloadArm64Deb, parent))
-	parent.actionFirmware.triggered.connect(partial(downloads.downloadFirmware, parent))
-
-	# Machine Tab
-	parent.boardCB.currentIndexChanged.connect(partial(boards.changed, parent))
-	parent.daughterCB_1.currentIndexChanged.connect(partial(daughters.changed, parent, 4))
-	parent.daughterCB_2.currentIndexChanged.connect(partial(daughters.changed, parent, 5))
 
 
 

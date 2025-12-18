@@ -10,7 +10,7 @@ from PyQt6.uic import loadUi
 
 from libmesact import startup
 from libmesact import installed
-from libmesact import downloads
+from libmesact import connections
 
 # remove after testing FIXME
 from libmesact import tests
@@ -31,6 +31,7 @@ class mesact(QMainWindow):
 			self.installed = False
 			loadUi(os.path.join(srcPath, 'mesact.ui'), self)
 		stylesheet = os.path.join(self.lib_path, 'mesact.qss')
+		print(f'self.docs_path {self.docs_path}')
 		with open(stylesheet,'r') as fh:
 			self.setStyleSheet(fh.read())
 
@@ -46,7 +47,7 @@ class mesact(QMainWindow):
 		installed.check(self)
 		startup.hide(self)
 		startup.combos(self)
-		startup.connections(self)
+		connections.connect(self)
 
 		# remove after testing FIXME
 		tests.connect(self)
