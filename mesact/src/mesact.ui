@@ -42,7 +42,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -1700,7 +1700,7 @@ to the clipboard</string>
         <item>
          <widget class="QTabWidget" name="joint_tw_3">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="tab_27">
            <attribute name="title">
@@ -2078,10 +2078,7 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_9">
             <item>
-             <widget class="QGroupBox" name="groupBox_4">
-              <property name="title">
-               <string>Axis</string>
-              </property>
+             <widget class="QFrame" name="frame_4">
               <layout class="QGridLayout" name="gridLayout_4">
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c0_min_limit_0">
@@ -2259,7 +2256,7 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
             <item>
              <widget class="QTabWidget" name="c0_settings_0">
               <property name="currentIndex">
-               <number>2</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_28">
                <attribute name="title">
@@ -2594,7 +2591,7 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
                     </widget>
                    </item>
                    <item row="0" column="1">
-                    <widget class="QLineEdit" name="c0_p_0">
+                    <widget class="QLineEdit" name="c0_p_0s">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                        <horstretch>0</horstretch>
@@ -3560,10 +3557,7 @@ Leave blank to home the joint manually.</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_13">
             <item>
-             <widget class="QGroupBox" name="groupBox_8">
-              <property name="title">
-               <string>Axis</string>
-              </property>
+             <widget class="QFrame" name="frame_8">
               <layout class="QGridLayout" name="gridLayout_20">
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c0_min_limit_1">
@@ -5026,10 +5020,7 @@ Leave blank to home the joint manually.</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_12">
             <item>
-             <widget class="QGroupBox" name="groupBox_10">
-              <property name="title">
-               <string>Axis</string>
-              </property>
+             <widget class="QFrame" name="frame_10">
               <layout class="QGridLayout" name="gridLayout_33">
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c0_max_limit_2">
@@ -6492,10 +6483,7 @@ Leave blank to home the joint manually.</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_11">
             <item>
-             <widget class="QGroupBox" name="groupBox_16">
-              <property name="title">
-               <string>Axis</string>
-              </property>
+             <widget class="QFrame" name="frame_16">
               <layout class="QGridLayout" name="gridLayout_42">
                <item row="0" column="2">
                 <widget class="QLabel" name="label_158">
@@ -7958,10 +7946,7 @@ Leave blank to home the joint manually.</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_10">
             <item>
-             <widget class="QGroupBox" name="groupBox_19">
-              <property name="title">
-               <string>Axis</string>
-              </property>
+             <widget class="QFrame" name="frame_19">
               <layout class="QGridLayout" name="gridLayout_56">
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c0_max_limit_4">
@@ -9417,10 +9402,7 @@ Leave blank to home the joint manually.</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_8">
             <item>
-             <widget class="QGroupBox" name="groupBox_22">
-              <property name="title">
-               <string>Axis</string>
-              </property>
+             <widget class="QFrame" name="frame_22">
               <layout class="QGridLayout" name="gridLayout_65">
                <item row="0" column="0">
                 <widget class="QLabel" name="label_152">
@@ -45236,6 +45218,50 @@ auto enp2s0
           <property name="title">
            <string>GroupBox</string>
           </property>
+          <layout class="QVBoxLayout" name="verticalLayout_66">
+           <item>
+            <widget class="QPushButton" name="test_axis_names_pb">
+             <property name="text">
+              <string>Test Axis Names</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="test_pid_names_pb">
+             <property name="text">
+              <string>Test PID Names</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="test_homing_names_pb">
+             <property name="text">
+              <string>Test Homing Names</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="test_analog_names_pb">
+             <property name="text">
+              <string>Test Analog Names</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="test_input_names_pb">
+             <property name="text">
+              <string>Test Input Names</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="test_output_names_pb">
+             <property name="text">
+              <string>Test Output Names</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
         <item>
@@ -45690,7 +45716,7 @@ auto enp2s0
   <tabstop>c0_max_vel_0</tabstop>
   <tabstop>c0_max_accel_0</tabstop>
   <tabstop>c0_settings_0</tabstop>
-  <tabstop>c0_p_0</tabstop>
+  <tabstop>c0_p_0s</tabstop>
   <tabstop>c0_i_0</tabstop>
   <tabstop>c0_d_0</tabstop>
   <tabstop>c0_ff0_0</tabstop>
