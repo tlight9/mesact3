@@ -7,6 +7,7 @@ from libmesact import download
 from libmesact import utilities
 from libmesact import boards
 from libmesact import daughters
+from libmesact import sscards
 from libmesact import flash
 
 
@@ -15,7 +16,7 @@ def connect(parent):
 	# Menu Items
 	# File Menu
 	parent.actionNew.triggered.connect(partial(utilities.new_config, parent))
-	parent.actionOpen.triggered.connect(partial(openini.open_ini, parent))
+	parent.actionOpen.triggered.connect(partial(openini.load_ini, parent))
 
 	exitAction = QAction(QIcon.fromTheme("application-exit"), 'Exit', parent)
 	exitAction.setStatusTip('Exit application')
@@ -79,6 +80,8 @@ def connect(parent):
 	parent.firmware_cb.currentIndexChanged.connect(partial(flash.firmware_changed, parent))
 
 
+	# Smart Serial Tab
+	parent.ss_card_cb.currentIndexChanged.connect(partial(sscards.card_changed, parent))
 
 
 	# Options Tab
