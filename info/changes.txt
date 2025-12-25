@@ -1,0 +1,1 @@
+changed FERROR to MAX_FERROR
