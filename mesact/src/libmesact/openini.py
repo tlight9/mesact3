@@ -17,6 +17,9 @@ def load_ini(parent, ini_file=None):
 		ini_file, _ = QFileDialog.getOpenFileName(parent, "Select INI File",
 			config_dir, '*.ini')
 
+	if not ini_file:
+		return
+
 	with open(ini_file, 'r') as file:
 		ini_list = file.readlines() # create a list of strings
 
