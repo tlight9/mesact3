@@ -1,6 +1,8 @@
 
 from datetime import datetime
 
+from PyQt6.QtWidgets import QSpinBox
+
 def build(parent):
 	parent.info_pte.appendPlainText(f'Building {parent.ini_path}')
 
@@ -83,7 +85,7 @@ def build(parent):
 		contents.append(f'MAX_ANGULAR_VELOCITY = {parent.max_ang_jog_vel_dsb.value():.1f}\n')
 	if parent.jog_increments.text():
 		contents.append(f'INCREMENTS = {parent.jog_increments.text()}\n')
-	if parent.splash_screen_gb.isChecked():
+	if parent.intro_graphic_gb.isChecked():
 		contents.append(f'INTRO_GRAPHIC = {parent.intro_graphic_le.text()}\n')
 		contents.append(f'INTRO_TIME = {parent.splash_screen_sb.value()}\n')
 	if parent.front_tool_lathe_rb.isChecked():
@@ -245,10 +247,12 @@ def build(parent):
 		contents.append(f'FF2 = {parent.ff2_s.cleanText()}\n')
 		contents.append(f'BIAS = {parent.bias_s.cleanText()}\n')
 		contents.append(f'DEADBAND = {parent.deadband_s.cleanText()}\n')
-		contents.append(f'OUTPUT_SCALE = {int(parent.spindle_rpm_le.text())}\n')
-		contents.append(f'OUTPUT_MIN_LIMIT = -{int(parent.spindle_rpm_le.text())}\n')
-		contents.append(f'OUTPUT_MAX_LIMIT = {int(parent.spindle_rpm_le.text())}\n')
+		contents.append(f'MAX_OUTPUT = {int(parent.spindle_rpm_le.text())}\n')
 
+		if parent.spindle_dir_cb.isChecked():
+			contents.append(f'OUTPUT_SCALE = {int(parent.spindle_rpm_le.text())}\n')
+			contents.append(f'OUTPUT_MIN_LIMIT = -{int(parent.spindle_rpm_le.text())}\n')
+			contents.append(f'OUTPUT_MAX_LIMIT = {int(parent.spindle_rpm_le.text())}\n')
 
 
 	# build the [EMCIO] Section
@@ -287,6 +291,28 @@ def build(parent):
 			source += getattr(parent, f'c0_output_type_{i}').currentData()[1]
 		contents.append(f'OUTPUT_SINK = {sink}\n')
 		contents.append(f'OUTPUT_SOURCE = {source}\n')
+
+	# build the [OPTIONS] section
+	contents.append('\n[OPTIONS]\n')
+	contents.append('# DO NOT change the options they are used by the configuration tool\n')
+	contents.append(f'LOAD_CONFIG = {parent.load_config_cb.isChecked()}\n')
+	contents.append(f'MANUAL_TOOL_CHANGE = {parent.manual_tool_change_cb.isChecked()}\n')
+	contents.append(f'CUSTOM_HAL = {parent.custom_hal_cb.isChecked()}\n')
+	contents.append(f'POST_GUI_HAL = {parent.postgui_hal_cb.isChecked()}\n')
+	contents.append(f'SHUTDOWN_HAL = {parent.shutdown_hal_cb.isChecked()}\n')
+	contents.append(f'HALUI = {parent.halui_cb.isChecked()}\n')
+	contents.append(f'PYVCP = {parent.pyvcp_cb.isChecked()}\n')
+	contents.append(f'BACKUP = {parent.backup_cb.isChecked()}\n')
+
+	# build the [PLC] section
+	if parent.ladder_gb.isChecked(): # check for any options
+		contents.append('\n[PLC]\n')
+		contents.append('# DO NOT change the plc options they are used by the configuration tool\n')
+		children = parent.ladder_gb.findChildren(QSpinBox)
+		for child in children:
+			if child.value() > 0:
+				print(child.property("item"))
+			contents.append(f'{child.property("item")} = {child.value()}\n')
 
 
 	try:

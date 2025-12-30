@@ -24,7 +24,6 @@ def load_ini(parent):
 			if os.path.isfile(config_file):
 				openini.load_ini(parent, config_file)
 
-
 def test(parent):
 	parent.machine_name_le.setText('Mesa CT 3')
 	parent.board_cb.setCurrentIndex(6)
@@ -37,6 +36,7 @@ def test(parent):
 	set_joints(parent, 0, ['X', 'Y', 'Z'])
 	parent.halui_cb.setChecked(True)
 	parent.mdi_le_0.setText('G0 X0 Y0')
+	parent.spindle_rpm_le.setText('2500')
 	config_dir = '/home/john/linuxcnc/configs/mesa_ct_3'
 	if os.path.isdir(config_dir):
 		shutil.rmtree(config_dir)
