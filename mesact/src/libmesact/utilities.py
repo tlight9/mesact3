@@ -1,5 +1,6 @@
 import os, subprocess
 from datetime import datetime
+from functools import partial
 
 from PyQt6.QtWidgets import QLineEdit, QComboBox, QDoubleSpinBox, QCheckBox
 from PyQt6.QtWidgets import QFileDialog, QLabel
