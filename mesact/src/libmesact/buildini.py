@@ -187,7 +187,7 @@ def build(parent):
 	for i in range(3):
 		for j in range(6):
 			if getattr(parent, f'c{i}_axis_{j}').currentData():
-				axis = getattr(parent, f'c{i}_axis_{j}').currentData()
+				axis = getattr(parent, f'c{i}_axis_{j}').currentText() # text is upper case
 				if axis and axis not in axes: # new axis only add one of each axis
 					axes.append(axis)
 					# build the [AXIS_<letter>] Section
@@ -287,7 +287,7 @@ def build(parent):
 	contents.append('# DO NOT change the inputs they are used by the configuration tool\n')
 	for i in range(3):
 		if parent.main_tw.isTabVisible(i + 3): # if the board tab is visible
-			if getattr(parent, f'c{i}_joint_tw').isTabVisible(1):
+			if getattr(parent, f'c{i}_board_tw').isTabVisible(1):
 				for j in range(32):
 					if getattr(parent, f"c{i}_input_{j}").text() != 'Select': # only add inputs that are used
 						contents.append(f'INPUT_{i}_{j} = {getattr(parent, f"c{i}_input_{j}").text()}\n')
@@ -307,6 +307,8 @@ def build(parent):
 	# boards with sink, source outputs
 	sink_source_boards = ['7i76EU']
 	if parent.board_cb.currentText() in sink_source_boards:
+		sink = ''
+		source = ''
 		for i in range(16):
 			sink += getattr(parent, f'c0_output_type_{i}').currentData()[0]
 			source += getattr(parent, f'c0_output_type_{i}').currentData()[1]

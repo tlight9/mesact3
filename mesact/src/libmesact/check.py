@@ -31,7 +31,7 @@ def check_config(parent):
 	if parent.gui_cb.currentData() == 'axis':
 		if parent.max_lin_jog_vel_dsb.value() == 0:
 			tab_error = True
-			config_errors.append('\tAxis requires the Maximum Linear Velocity to be more than 0')
+			config_errors.append('\tJog Settings requires the Maximum Linear Velocity to be more than 0')
 
 	if parent.gui_cb.currentData() == 'flexgui':
 		if parent.flex_gui_le.text() == '':

@@ -76,8 +76,10 @@ def connect(parent):
 	# Machine Tab
 	parent.machine_name_le.textChanged[str].connect(partial(utilities.machine_name_changed, parent))
 	parent.board_cb.currentIndexChanged.connect(partial(boards.changed, parent))
-	parent.daughter_cb_1.currentIndexChanged.connect(partial(daughters.changed, parent, 4))
-	parent.daughter_cb_2.currentIndexChanged.connect(partial(daughters.changed, parent, 5))
+	parent.daughter_cb_1.currentIndexChanged.connect(partial(daughters.changed, parent))
+	parent.daughter_cb_2.currentIndexChanged.connect(partial(daughters.changed, parent))
+	parent.find_ip_board_pb.clicked.connect(partial(flash.find_ip_board, parent))
+	parent.verify_board_pb.clicked.connect(partial(flash.verify_board, parent))
 
 	# Firmware Tab
 	parent.firmware_cb.currentIndexChanged.connect(partial(flash.firmware_changed, parent))

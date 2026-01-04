@@ -98,15 +98,15 @@ def build_combos(parent):
 	# Joint Tabs
 	axes = [
 		['Select', False],
-		['X', 'X'],
-		['Y', 'Y'],
-		['Z', 'Z'],
-		['A', 'A'],
-		['B', 'B'],
-		['C', 'C'],
-		['U', 'U'],
-		['V', 'V'],
-		['W', 'W']
+		['X', 'x'],
+		['Y', 'y'],
+		['Z', 'z'],
+		['A', 'a'],
+		['B', 'b'],
+		['C', 'c'],
+		['U', 'u'],
+		['V', 'v'],
+		['W', 'w']
 		]
 
 	for i in range(3):

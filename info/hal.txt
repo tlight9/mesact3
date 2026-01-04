@@ -27,13 +27,31 @@ after getting pins and parameters
 quit
 
 In another terminal
-halcmd show all hm2 > 7i76E-pins.txt
-halcmd show all hm2 > 7i76E-7i76-P1-pins.txt
-halcmd show all hm2 > 7i76E-7i76-P2-pins.txt
-halcmd show all hm2 > 7i76E-7i77-P1-pins.txt
-halcmd show all hm2 > 7i76E-7i77-P2-pins.txt
 
-halcmd show all hm2 > 7i76EU-pins.txt
+7i92t
+P1 inner connector P2 outer connector
+LinuxCNC must be running for all pins
+halcmd show all > 7i92T-all-pins.txt
+halcmd show all hm2 > 7i92T-7i78-hm2-pins.txt
+
+halcmd show all hm2 > 7i92T-7i76-hm2-P1-pins.txt
+halcmd show all hm2 > 7i92T-7i76-hm2-P2-pins.txt
+
+halcmd show all hm2 > 7i92T-7i77-hm2-P1-pins.txt
+halcmd show all hm2 > 7i92T-7i77-hm2-P2-pins.txt
+
+
+P1 upper connector P2 lower connector
+halcmd show all hm2 > 7i76E-hm2-pins.txt
+halcmd show all > 7i76E-all-pins.txt
+halcmd show all hm2 > 7i76E-7i76-hm2-P1-pins.txt
+halcmd show all hm2 > 7i76E-7i76-hm2-P2-pins.txt
+halcmd show all hm2 > 7i76E-7i77-hm2-P1-pins.txt
+halcmd show all hm2 > 7i76E-7i77-hm2-P2-pins.txt
+halcmd show all hm2 > 7i76E-7i78-hm2-P1-pins.txt
+halcmd show all hm2 > 7i76E-7i78-hm2-P2-pins.txt
+
+halcmd show all hm2 > 7i76EU-hm2-pins.txt
 halcmd show all hm2 > 7i76EU-7i76-P1-pins.txt
 halcmd show all hm2 > 7i76EU-7i76-P2-pins.txt
 halcmd show all hm2 > 7i76EU-7i77-P1-pins.txt

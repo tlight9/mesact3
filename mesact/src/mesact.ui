@@ -432,10 +432,10 @@
             <widget class="QPlainTextEdit" name="verify_pte">
              <property name="font">
               <font>
-               <family>BPG Courier S GPL&amp;GNU</family>
+               <family>Monospace</family>
                <pointsize>10</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
+               <weight>50</weight>
+               <bold>false</bold>
               </font>
              </property>
              <property name="tabChangesFocus">
@@ -1992,8 +1992,8 @@ by a unit (cm, mm, um, inch, in or mil)</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>712</width>
-                    <height>259</height>
+                    <width>170</width>
+                    <height>63</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL">
@@ -2451,13 +2451,13 @@ if it does not exist</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
-         <widget class="QTabWidget" name="c0_joint_tw">
+         <widget class="QTabWidget" name="c0_board_tw">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_27">
            <attribute name="title">
-            <string>Board</string>
+            <string/>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_321">
             <item row="0" column="0">
@@ -13121,13 +13121,13 @@ Leave blank to home the joint manually.</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
-         <widget class="QTabWidget" name="c1_joint_tw">
+         <widget class="QTabWidget" name="c1_board_tw">
           <property name="currentIndex">
            <number>0</number>
           </property>
           <widget class="QWidget" name="tab_52">
            <attribute name="title">
-            <string>Board</string>
+            <string/>
            </attribute>
            <widget class="QLabel" name="units_lb_1">
             <property name="geometry">
@@ -23548,13 +23548,13 @@ Leave blank to home the joint manually.</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_26">
         <item>
-         <widget class="QTabWidget" name="c2_joint_tw">
+         <widget class="QTabWidget" name="c2_board_tw">
           <property name="currentIndex">
            <number>0</number>
           </property>
           <widget class="QWidget" name="tab_86">
            <attribute name="title">
-            <string>Board</string>
+            <string/>
            </attribute>
            <widget class="QLabel" name="units_lb_2">
             <property name="geometry">
@@ -43163,7 +43163,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                 <height>0</height>
                </size>
               </property>
-              <widget class="QWidget" name="tabWidget_216Page1" native="true">
+              <widget class="QWidget" name="tabWidget_216Page1">
                <attribute name="title">
                 <string/>
                </attribute>
@@ -46514,7 +46514,7 @@ auto enp2s0
   <tabstop>ethernet_pte</tabstop>
   <tabstop>c1_settings_2</tabstop>
   <tabstop>c1_min_ferror_2</tabstop>
-  <tabstop>c0_joint_tw</tabstop>
+  <tabstop>c0_board_tw</tabstop>
   <tabstop>c1_bias_0</tabstop>
   <tabstop>c1_i_0</tabstop>
   <tabstop>c1_max_vel_0</tabstop>
@@ -46524,7 +46524,7 @@ auto enp2s0
   <tabstop>c1_max_error_0</tabstop>
   <tabstop>c1_d_0</tabstop>
   <tabstop>c1_max_output_0</tabstop>
-  <tabstop>c2_joint_tw</tabstop>
+  <tabstop>c2_board_tw</tabstop>
   <tabstop>daughter_info_pte_0</tabstop>
   <tabstop>c1_ff1_0</tabstop>
   <tabstop>c1_max_accel_0</tabstop>
@@ -46534,7 +46534,7 @@ auto enp2s0
   <tabstop>c1_deadband_0</tabstop>
   <tabstop>c1_axis_0</tabstop>
   <tabstop>plainTextEdit_3</tabstop>
-  <tabstop>c1_joint_tw</tabstop>
+  <tabstop>c1_board_tw</tabstop>
   <tabstop>c1_ff0_0</tabstop>
   <tabstop>angular_steps_rev_le</tabstop>
   <tabstop>angular_microsteps_le</tabstop>

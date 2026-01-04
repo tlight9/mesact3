@@ -1,0 +1,26 @@
+default firmware 7i76eud.bin
+
+pins in addition to 7i76e
+hm2_7i76e.0.7i76.0.0.output_sink
+hm2_7i76e.0.7i76.0.0.output_source
+
+OUTPUT MODES
+The 7I76EU field outputs are flexible and can support sourcing, sinking, and push
+pull modes. These modes are selectable on a per output basis with the source and sink
+parameters. These parameters are a 16 bit numbers where each bit determines the mode
+of the corresponding output. Sourcing mode is enabled for a given output by having the
+corresponding bit set to ‘1' in the source parameter and set to ‘0' in the sink parameter.
+Sinking mode is similarly enabled by setting the corresponding sink bit to ‘1' and source
+bit to ‘0'. Push-pull mode is selected by setting both bits for a given output to ‘1'
+In sourcing mode with standard 24V field power, +24V connects to the 7I76Us field
+power input (on TB1) and the outputs on TB5 and TB6 that are in sourcing mode now
+source +24V power to loads when on. Loads on outputs in sourcing mode will have the
+common side returned to ground or the negative lead of the 24V supply. In sinking mode,
+the load common would connect to +24V and be activated when the 7I76EU outputs in
+sinking mode ground the output.
+
+hm2_7i76e.0.7i76.0.0.spinmode
+
+If spinmode is zero, 7I76E compatible ENA/DIR mode is used.
+If spinmode is non-zero, FWD/REV mode is used.
+

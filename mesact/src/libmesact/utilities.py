@@ -12,6 +12,13 @@ def is_number(s):
 	except ValueError:
 		return False
 
+def check_emc():
+	cp = subprocess.run(['pgrep', '-l', 'linuxcnc'], text=True, capture_output=True)
+	if 'linuxcnc' in cp.stdout:
+		return True
+	else:
+		return False
+
 def new_config(parent):
 	# set main tab visibility
 	parent.main_tw.setTabVisible(3, False)

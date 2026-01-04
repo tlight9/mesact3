@@ -10,7 +10,7 @@ def changed(parent, index):
 		parent.board_hal_name = parent.board_cb.currentData()
 		parent.main_tw.setTabVisible(3, True)
 		parent.main_tw.setTabText(3, parent.board_name)
-		parent.c0_joint_tw.setTabText(0, parent.board_name)
+		parent.c0_board_tw.setTabText(0, parent.board_name)
 		if parent.mesaflash:
 			parent.read_hmid_gb.setEnabled(True)
 			firmware.load(parent)
@@ -144,7 +144,7 @@ def changed(parent, index):
 			set_io(parent, 32, True, False, 16, True, True)
 			parent.board_interface = 'eth'
 			parent.board_type = 'stepper'
-			parent.hal_name = '7i76e'
+			parent.hal_name = '7i76'
 			parent.mesaflash_name = '7i76eu'
 			check_mesaflash(parent, (3,5,2))
 			info = ('Connector 5v Power\n'
@@ -405,10 +405,10 @@ def daughter_boards(parent, port_1 , port_2):
 
 def set_drives(parent, drives):
 	for i in range(1, 7):
-		parent.c0_joint_tw.setTabVisible(i, False)
+		parent.c0_board_tw.setTabVisible(i, False)
 	if drives > 0:
 		for i in range(1, drives + 1):
-			parent.c0_joint_tw.setTabVisible(i, True)
+			parent.c0_board_tw.setTabVisible(i, True)
 
 def set_io(parent, inputs, i_invert, i_debounce, outputs, o_invert, o_dir):
 	# inputs, input invert, input debounce, outputs, output invert
@@ -423,7 +423,7 @@ def set_io(parent, inputs, i_invert, i_debounce, outputs, o_invert, o_dir):
 		getattr(parent, f'c0_output_type_{i}').setEnabled(False)
 
 	if inputs:
-		parent.c0_joint_tw.setTabVisible(7, True)
+		parent.c0_board_tw.setTabVisible(7, True)
 		for i in range(inputs):
 			getattr(parent, f'c0_input_{i}').setEnabled(True)
 			if i_invert:
@@ -431,9 +431,9 @@ def set_io(parent, inputs, i_invert, i_debounce, outputs, o_invert, o_dir):
 			if i_debounce:
 				getattr(parent, f'c0_input_debounce_{i}').setEnabled(True)
 	else:
-		parent.c0_joint_tw.setTabVisible(7, False)
+		parent.c0_board_tw.setTabVisible(7, False)
 	if outputs:
-		parent.c0_joint_tw.setTabVisible(8, True)
+		parent.c0_board_tw.setTabVisible(8, True)
 		for i in range(outputs):
 			getattr(parent, f'c0_output_{i}').setEnabled(True)
 			if o_invert:
@@ -441,7 +441,7 @@ def set_io(parent, inputs, i_invert, i_debounce, outputs, o_invert, o_dir):
 			if o_dir:
 				getattr(parent, f'c0_output_type_{i}').setEnabled(True)
 	else:
-		parent.c0_joint_tw.setTabVisible(8, False)
+		parent.c0_board_tw.setTabVisible(8, False)
 
 
 

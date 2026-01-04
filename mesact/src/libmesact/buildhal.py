@@ -73,8 +73,48 @@ def build(parent):
 		contents.append(f'addf {pid}.do-pid-calcs servo-thread\n')
 	contents.append(f'addf hm2_{parent.hal_name}.0.write servo-thread\n')
 
+	contents.append('\n# amp enable\n')
+	contents.append(f'net motion-enable <= motion.motion-enabled\n')
 
+	# Joints
+	# 7i96s has a pwmgen enable for something
+	drive_enables = {'7i76': 'stepgen', '7i76E': 'stepgen', '7i76EU': 'stepgen',
+	'7i77': 'pwmgen',
+	'7i95': 'stepgen', '7i95T': 'stepgen', '7i96': 'stepgen', '7i96S': 'stepgen',
+	'7i97': 'pwmgen', '7i97T': 'pwmgen'}
 
+	joint = 0
+	for i in range(3):
+		# need the board type
+		board = getattr(parent, f'c{i}_board_tw').tabText(0)
+		if board:
+			print(board)
+			for j in range(6):
+				axis = getattr(parent, f'c{i}_axis_{j}').currentData()
+				if axis:
+					contents.append(f'\n# Axis: {axis} Joint: {joint} Output: {j}\n')
+					contents.append(f'# PID Setup\n')
+					contents.append(f'setp {pid_list[joint]}.Pgain [JOINT_{joint}](P)\n')
+					contents.append(f'setp {pid_list[joint]}.Igain [JOINT_{joint}](I)\n')
+					contents.append(f'setp {pid_list[joint]}.Dgain [JOINT_{joint}](D)\n')
+					contents.append(f'setp {pid_list[joint]}.bias [JOINT_{joint}](BIAS)\n')
+					contents.append(f'setp {pid_list[joint]}.FF0 [JOINT_{joint}](FF0)\n')
+					contents.append(f'setp {pid_list[joint]}.FF1 [JOINT_{joint}](FF1)\n')
+					contents.append(f'setp {pid_list[joint]}.FF2 [JOINT_{joint}](FF2)\n')
+					contents.append(f'setp {pid_list[joint]}.deadband [JOINT_{joint}](DEADBAND)\n')
+					contents.append(f'setp {pid_list[joint]}.maxoutput [JOINT_{joint}](MAX_OUTPUT)\n')
+					contents.append(f'setp {pid_list[joint]}.error-previous-target True\n')
+
+					# Enables
+					contents.append('\n# Joint Enables\n')
+					contents.append(f'net {axis}-enable => pid.{axis}.enable\n')
+					contents.append(f'net {axis}-enable <= joint.{joint}.amp-enable-out\n')
+					# FIXME this needs to be sorted out for all boards
+					contents.append(f'net {axis}-enable <= hm2_{parent.hal_name}.0.{drive_enables[board]}.00.enable\n')
+
+					joint += 1
+
+	# contents.append(f'{}\n')
 	# E Stop
 	external_estop = False
 	for i in range(3): # test for an external e stop input

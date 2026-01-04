@@ -1,5 +1,6 @@
 
 from libmesact import utilities
+from libmesact import dialogs
 
 def axis_changed(parent):
 	board = parent.sender().objectName()[:3]
@@ -118,7 +119,8 @@ def set_default_pid(parent):
 	connector = parent.sender().objectName()[:2]
 	joint = parent.sender().objectName()[-1]
 	if not parent.linear_units_cb.currentData():
-		QMessageBox.warning(parent,'Warning', 'Settings Tab\nLinear Units\nmust be selected', QMessageBox.Ok)
+		msg = ('Settings Tab\nLinear Units must be selected\nto calculate default PID')
+		dialogs.msg_error_ok(parent, msg, 'Error')
 		return
 	if joint == 's':
 		getattr(parent, 'p_s').setValue(0)
