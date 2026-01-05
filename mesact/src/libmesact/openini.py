@@ -247,11 +247,11 @@ def load_ini(parent, ini_file=None):
 			joint_dict['HOME_IS_SHARED'] = f'c{board}_home_switch_shared_{joint}'
 			joint_dict['HOME_IGNORE_LIMITS'] = f'c{board}_home_ignore_limits_{joint}'
 
-			joint_dict['DRIVE'] = f'c{board}_drive_{joint}'
-			joint_dict['STEPLEN'] = f'c{board}_step_time_{joint}'
-			joint_dict['STEPSPACE'] = f'c{board}_step_space_{joint}'
-			joint_dict['DIRSETUP'] = f'c{board}_dir_setup_{joint}'
-			joint_dict['DIRHOLD'] = f'c{board}_dir_hold_{joint}'
+			joint_dict['STEP_DRIVE'] = f'c{board}_drive_{joint}'
+			joint_dict['STEP_LEN'] = f'c{board}_step_time_{joint}'
+			joint_dict['STEP_SPACE'] = f'c{board}_step_space_{joint}'
+			joint_dict['DIR_SETUP'] = f'c{board}_dir_setup_{joint}'
+			joint_dict['DIR_HOLD'] = f'c{board}_dir_hold_{joint}'
 			joint_dict['STEP_INVERT'] = f'c{board}_step_invert_{joint}'
 			joint_dict['DIR_INVERT'] = f'c{board}_dir_invert_{joint}'
 

@@ -185,6 +185,9 @@ def build(parent):
 	axes = []
 	joint = 0
 	for i in range(3):
+		if getattr(parent, f'board_{i}_type') not in ['stepper', 'servo']:
+			continue
+
 		for j in range(6):
 			if getattr(parent, f'c{i}_axis_{j}').currentData():
 				axis = getattr(parent, f'c{i}_axis_{j}').currentText() # text is upper case
@@ -201,7 +204,8 @@ def build(parent):
 				contents.append(f'\n[JOINT_{joint}]\n')
 				contents.append(f'BOARD = {i}\n')
 				contents.append(f'DRIVE = {j}\n')
-				contents.append(f'AXIS = {getattr(parent, f"c{i}_axis_{j}").currentData()}\n')
+				contents.append(f'AXIS = {getattr(parent, f"c{i}_axis_{j}").currentText()}\n')
+				contents.append(f'SCALE = {getattr(parent, f"c{i}_scale_{j}").text()}\n')
 				contents.append(f'MIN_LIMIT = {getattr(parent, f"c{i}_min_limit_{j}").text()}\n')
 				contents.append(f'MAX_LIMIT = {getattr(parent, f"c{i}_max_limit_{j}").text()}\n')
 				contents.append(f'MAX_VELOCITY = {getattr(parent, f"c{i}_max_vel_{j}").text()}\n')
@@ -255,6 +259,31 @@ def build(parent):
 				for item in home_cb:
 					if getattr(parent, f'c{i}{item[0]}{j}').isChecked():
 						contents.append(f'{item[1]} = True\n')
+
+				# Stepper Drive
+				if getattr(parent, f'board_{i}_type') == 'stepper':
+					contents.append(f'\n# Stepper Drive Settings\n')
+					contents.append(f'STEP_DRIVE = {getattr(parent, f"c{i}_drive_{j}").currentText()}\n')
+					contents.append(f'STEP_LEN = {getattr(parent, f"c{i}_step_time_{j}").text()}\n')
+					contents.append(f'STEP_SPACE = {getattr(parent, f"c{i}_step_space_{j}").text()}\n')
+					contents.append(f'STEP_INVERT = {getattr(parent, f"c{i}_step_invert_{j}").isChecked()}\n')
+					contents.append(f'DIR_SETUP = {getattr(parent, f"c{i}_dir_setup_{j}").text()}\n')
+					contents.append(f'DIR_HOLD = {getattr(parent, f"c{i}_dir_hold_{j}").text()}\n')
+					contents.append(f'DIR_INVERT = {getattr(parent, f"c{i}_dir_invert_{j}").isChecked()}\n')
+					contents.append(f'STEPGEN_MAX_VEL = {float(getattr(parent, f"c{i}_max_vel_{j}").text()) * 1.2:.2f}\n')
+					contents.append(f'STEPGEN_MAX_ACC = {float(getattr(parent, f"c{i}_max_accel_{j}").text()) * 1.2:.2f}\n')
+
+
+				# Analog Drive
+				if getattr(parent, f'board_{i}_type') == 'servo':
+					contents.append(f'\n# Servo Drive Settings\n')
+					contents.append(f'ANALOG_MIN_LIMIT = {getattr(parent, f"c{i}_analog_min_limit_{j}").text()}\n')
+					contents.append(f'ANALOG_MAX_LIMIT = {getattr(parent, f"c{i}_analog_max_limit_{j}").text()}\n')
+					contents.append(f'ANALOG_SCALE_MAX = {getattr(parent, f"c{i}_analog_scale_max_{j}").text()}\n')
+
+				if getattr(parent, f'c{i}_encoder_scale_{j}').text(): # Encoder Scale
+					contents.append(f'ENCODER_SCALE = {getattr(parent, f"c{i}_encoder_scale_{j}").text()}\n')
+
 				joint += 1
 
 	# build the [SPINDLE_<num>] Section(s)

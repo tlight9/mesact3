@@ -35,9 +35,9 @@ def build(parent):
 	if parent.board_interface == 'eth':
 		contents.append(f'board_ip="{parent.address_cb.currentText()}" config="sserial_port_0=00000000"\n')
 
-	contents.append(f'\nsetp hm2_{parent.hal_name}.0.watchdog.timeout_ns {parent.servo_period_sb.value() * 5}\n')
+	contents.append(f'\nsetp hm2_{parent.board_0_hal_name}.0.watchdog.timeout_ns {parent.servo_period_sb.value() * 5}\n')
 
-	# PID
+	# PID FIXME for daughter boards
 	pid_count = 0
 	pid_string = ''
 	for axis in parent.coordinates_lb.text():
@@ -50,7 +50,7 @@ def build(parent):
 		pid_string += f'pid.s,'
 	contents.append(f'\nloadrt pid names={pid_string[:-1]}\n')
 
-	if parent.board_type == 'stepper':
+	if parent.board_0_type == 'stepper':
 		contents.append('\n# Why Mesa Stepper Boards need a PID controller\n')
 		contents.append('# Mesa hardware step generators at every servo thread invocation, the step\n')
 		contents.append('# generator hardware is given a new velocity. Without feedback from the PID\n')
@@ -60,35 +60,32 @@ def build(parent):
 		contents.append('# corrects for these small differences.\n')
 
 		contents.append('\n# DPLL TIMER\n')
-		contents.append(f'setp hm2_{parent.hal_name}.0.dpll.01.timer-us -200\n')
-		contents.append(f'setp hm2_{parent.hal_name}.0.stepgen.timer-number 1\n')
+		contents.append(f'setp hm2_{parent.board_0_hal_name}.0.dpll.01.timer-us -200\n')
+		contents.append(f'setp hm2_{parent.board_0_hal_name}.0.stepgen.timer-number 1\n')
 
 	contents.append('\n# THREADS\n')
-	contents.append(f'addf hm2_{parent.hal_name}.0.read servo-thread\n')
+	contents.append(f'addf hm2_{parent.board_0_hal_name}.0.read servo-thread\n')
 	contents.append('addf motion-command-handler servo-thread\n')
 	contents.append('addf motion-controller servo-thread\n')
 
 	pid_list = pid_string[:-1].split(',')
 	for pid in pid_list:
 		contents.append(f'addf {pid}.do-pid-calcs servo-thread\n')
-	contents.append(f'addf hm2_{parent.hal_name}.0.write servo-thread\n')
+	contents.append(f'addf hm2_{parent.board_0_hal_name}.0.write servo-thread\n')
 
 	contents.append('\n# amp enable\n')
 	contents.append(f'net motion-enable <= motion.motion-enabled\n')
 
 	# Joints
 	# 7i96s has a pwmgen enable for something
-	drive_enables = {'7i76': 'stepgen', '7i76E': 'stepgen', '7i76EU': 'stepgen',
-	'7i77': 'pwmgen',
-	'7i95': 'stepgen', '7i95T': 'stepgen', '7i96': 'stepgen', '7i96S': 'stepgen',
-	'7i97': 'pwmgen', '7i97T': 'pwmgen'}
+	drive_enables = {'7i76': 'stepgen', '7i76e': 'stepgen', '7i77': 'pwmgen',
+	'7i95': 'stepgen', '7i96': 'stepgen', '7i96s': 'stepgen', '7i97': 'pwmgen'}
 
 	joint = 0
 	for i in range(3):
-		# need the board type
-		board = getattr(parent, f'c{i}_board_tw').tabText(0)
-		if board:
-			print(board)
+		if getattr(parent, f'c{i}_board_tw').tabText(0):
+			#board = getattr(parent, f'c{i}_board_tw').tabText(0)
+			hal_name = getattr(parent, f'board_{i}_hal_name')
 			for j in range(6):
 				axis = getattr(parent, f'c{i}_axis_{j}').currentData()
 				if axis:
@@ -105,12 +102,53 @@ def build(parent):
 					contents.append(f'setp {pid_list[joint]}.maxoutput [JOINT_{joint}](MAX_OUTPUT)\n')
 					contents.append(f'setp {pid_list[joint]}.error-previous-target True\n')
 
+					# Index Enable
+					contents.append(f'\n# joint-{joint} enable chain\n')
+					contents.append(f'net joint-{joint}-index-enable <=> {pid_list[joint]}.index-enable\n')
+					contents.append(f'net joint-{joint}-index-enable <=> joint.{joint}.index-enable\n')
+
 					# Enables
 					contents.append('\n# Joint Enables\n')
 					contents.append(f'net {axis}-enable => pid.{axis}.enable\n')
 					contents.append(f'net {axis}-enable <= joint.{joint}.amp-enable-out\n')
-					# FIXME this needs to be sorted out for all boards
-					contents.append(f'net {axis}-enable <= hm2_{parent.hal_name}.0.{drive_enables[board]}.00.enable\n')
+					contents.append(f'net {axis}-enable <= hm2_{hal_name}.0.{drive_enables[hal_name]}.00.enable\n')
+
+					# Stepgen FIXME get board hal name
+					if getattr(parent, f'board_{i}_type') == 'stepper':
+						contents.append(f'\n# Joint {joint} Step Generator Settings\n')
+						contents.append(f'setp hm2_{hal_name}.0.stepgen.0{joint}.steplen [JOINT_{joint}](STEP_LEN)\n')
+						contents.append(f'setp hm2_{hal_name}.0.stepgen.0{joint}.stepspace [JOINT_{joint}](STEP_SPACE)\n')
+						contents.append(f'setp hm2_{hal_name}.0.stepgen.0{joint}.dirsetup [JOINT_{joint}](DIR_SETUP)\n')
+						contents.append(f'setp hm2_{hal_name}.0.stepgen.0{joint}.dirhold [JOINT_{joint}](DIR_HOLD)\n')
+						contents.append(f'setp hm2_{hal_name}.0.stepgen.0{joint}.position-scale [JOINT_{joint}](SCALE)\n')
+						contents.append(f'setp hm2_{hal_name}.0.stepgen.0{joint}.maxvel [JOINT_{joint}](STEPGEN_MAX_VEL)\n')
+						contents.append(f'setp hm2_{hal_name}.0.stepgen.0{joint}.maxaccel [JOINT_{joint}](STEPGEN_MAX_ACC)\n')
+						contents.append(f'setp hm2_{hal_name}.0.stepgen.0{joint}.step_type 0\n')
+						contents.append(f'setp hm2_{hal_name}.0.stepgen.0{joint}.control-type 1\n')
+
+					# Servo
+
+					# Position Command and Feedback
+					contents.append('\n# position command and feedback\n')
+					contents.append(f'net joint-{joint}-pos-cmd <= joint.{joint}.motor-pos-cmd\n')
+					contents.append(f'net joint-{joint}-pos-cmd => {pid_list[joint]}.command\n')
+
+					if getattr(parent, f'board_{i}_type') == 'stepper':
+						contents.append(f'net joint-{joint}-pos-fb <= hm2_{hal_name}.0.stepgen.0{joint}.position-fb\n')
+					elif getattr(parent, f'board_{i}_type') == 'servo':
+						contents.append(f'net joint-{joint}-pos-fb <= hm2_{hal_name}.0.encoder.0{joint}.position\n')
+					contents.append(f'net joint-{joint}-pos-fb => joint.{joint}.motor-pos-fb\n')
+					contents.append(f'net joint-{joint}-pos-fb => {pid_list[joint]}.feedback\n')
+
+					# PID Output
+					contents.append('\n# PID Output\n')
+					contents.append(f'net joint.{joint}.output <= {pid_list[joint]}.output\n')
+					if getattr(parent, f'board_{i}_type') == 'stepper':
+						contents.append(f'net joint.{joint}.output => hm2_{hal_name}.0.stepgen.0{joint}.velocity-cmd\n')
+					# hm2_7i92.0.7i77.0.1.analogout0
+					elif getattr(parent, f'board_{i}_type') == 'servo':
+						contents.append(f'net joint.{joint}.output => hm2_{hal_name}.0.pwmgen.0{output}.value\n')
+
 
 					joint += 1
 

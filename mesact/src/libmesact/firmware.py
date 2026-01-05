@@ -4,22 +4,23 @@ def load(parent):
 	parent.firmware_cb.clear()
 	parent.firmware_info_pte.clear()
 	#board = parent.board_cb.currentData()
-	path = os.path.join(parent.firmware_path, parent.board_hal_name)
-	if os.path.exists(path):
-		firmware = ['.bit', '.bin']
-		extensions = list(set(os.path.splitext(file)[-1] for file in os.listdir(path)))
-		if any(x in firmware for x in extensions):
-			files = sorted([entry.path for entry in os.scandir(path) if entry.is_file()])
-			parent.firmware_cb.addItem('Select', False)
-			for file in files:
-				if os.path.splitext(file)[1] in firmware:
-					parent.firmware_cb.addItem(os.path.basename(file), file)
-			parent.firmware_pte.clear()
-			parent.firmware_tw.setCurrentIndex(0)
-			if parent.read_hmid_gb.isEnabled(): # set mesaflash tools on if installed
-				parent.firmware_gb.setEnabled(True)
-		else:
-			noFirmware(parent, parent.board_hal_name)
+	if parent.mesaflash_name:
+		path = os.path.join(parent.firmware_path, parent.mesaflash_name)
+		if os.path.exists(path):
+			firmware = ['.bit', '.bin']
+			extensions = list(set(os.path.splitext(file)[-1] for file in os.listdir(path)))
+			if any(x in firmware for x in extensions):
+				files = sorted([entry.path for entry in os.scandir(path) if entry.is_file()])
+				parent.firmware_cb.addItem('Select', False)
+				for file in files:
+					if os.path.splitext(file)[1] in firmware:
+						parent.firmware_cb.addItem(os.path.basename(file), file)
+				parent.firmware_pte.clear()
+				parent.firmware_tw.setCurrentIndex(0)
+				if parent.read_hmid_gb.isEnabled(): # set mesaflash tools on if installed
+					parent.firmware_gb.setEnabled(True)
+			else:
+				noFirmware(parent, parent.board_hal_name)
 	else:
 		noFirmware(parent, parent.board_hal_name)
 

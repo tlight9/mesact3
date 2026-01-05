@@ -1,42 +1,44 @@
 
 
 def changed(parent, index): # index is the combobox index
-	board = parent.sender().currentData()
+	drive_tw = int(parent.sender().objectName()[-1])
+	main_tw_tab = drive_tw + 3
+	if parent.sender().currentData():
+		board = parent.sender().currentData()
 
-	if parent.sender().objectName() == 'daughter_cb_1':
-		main_tw_tab = 4
-		drive_tw = 1
-	elif parent.sender().objectName() == 'daughter_cb_2':
-		main_tw_tab = 5
-		drive_tw = 2
-
-	# FIXME might be better to match the board name and board would be false if not selected
-	match board:
-		case False:
-			parent.main_tw.setTabVisible(main_tw_tab, False)
-			parent.main_tw.setTabText(main_tw_tab, '')
-		case '7i76':
-			# 5 step/dir, 32 inputs, 16 outputs, 1 pot spindle, 1 encoder
-			#print('7i76 selected')
-			set_drives(parent, 5, main_tw_tab, drive_tw, board)
-			set_io(parent, drive_tw, 32, True, False, 16, True, False)
-		case '7i77':
-			# 6 analog, 32 inputs, 16 outputs, 1 pot spindle, 1 encoder
-			#print('7i77 selected')
-			set_drives(parent, 6, main_tw_tab, drive_tw, board)
-			set_io(parent, drive_tw, 32, True, False, 16, True, False)
-		case '7i78':
-			# 4 step/dir, 0 inputs, 0 outputs, 1 encoder, 1 spindle pot
-			#print('7i78 selected')
-			set_drives(parent, 4, main_tw_tab, drive_tw, board)
-			set_io(parent, drive_tw, 0, False, False, 0, False, False)
-		case '7i85': # 7i85 FIXME add set_io
-			#print('7i85 selected')
-			set_drives(parent, 5, main_tw_tab, drive_tw, board) # FIXME dunno what this board has
-		case '7i85s': # 7i85S FIXME add set_io
-			# 4 step/dir, 0 inputs, 0 outputs, 4 encoders
-			#print('7i85S selected')
-			set_drives(parent, 5, main_tw_tab, drive_tw, board)
+		# FIXME might be better to match the board name and board would be false if not selected
+		match board:
+			case '7i76':
+				# 5 step/dir, 32 inputs, 16 outputs, 1 pot spindle, 1 encoder
+				#print('7i76 selected')
+				set_drives(parent, 5, main_tw_tab, drive_tw, board)
+				set_io(parent, drive_tw, 32, True, False, 16, True, False)
+				setattr(parent, f'board_{drive_tw}_type', 'stepper')
+			case '7i77':
+				# 6 analog, 32 inputs, 16 outputs, 1 pot spindle, 1 encoder
+				#print('7i77 selected')
+				set_drives(parent, 6, main_tw_tab, drive_tw, board)
+				set_io(parent, drive_tw, 32, True, False, 16, True, False)
+				setattr(parent, f'board_{drive_tw}_type', 'servo')
+			case '7i78':
+				# 4 step/dir, 0 inputs, 0 outputs, 1 encoder, 1 spindle pot
+				#print('7i78 selected')
+				set_drives(parent, 4, main_tw_tab, drive_tw, board)
+				set_io(parent, drive_tw, 0, False, False, 0, False, False)
+				setattr(parent, f'board_{drive_tw}_type', 'stepper')
+			case '7i85': # 7i85 FIXME add set_io
+				#print('7i85 selected')
+				set_drives(parent, 5, main_tw_tab, drive_tw, board) # FIXME dunno what this board has
+				setattr(parent, f'board_{drive_tw}_type', 'mother')
+			case '7i85s': # 7i85S FIXME add set_io
+				# 4 step/dir, 0 inputs, 0 outputs, 4 encoders
+				#print('7i85S selected')
+				set_drives(parent, 5, main_tw_tab, drive_tw, board)
+				setattr(parent, f'board_{drive_tw}_type', 'stepper')
+	else: # no board selected
+		setattr(parent, f'board_{drive_tw}_type', None)
+		parent.main_tw.setTabVisible(main_tw_tab, False)
+		parent.main_tw.setTabText(main_tw_tab, '')
 
 def set_drives(parent, drives, main_tw_tab, drive_tw, board):
 	parent.main_tw.setTabVisible(main_tw_tab, True)

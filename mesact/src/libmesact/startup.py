@@ -6,8 +6,12 @@ def setup_vars(parent):
 	parent.config_path = ''
 	parent.board_name = None
 	parent.board_interface = None
-	parent.board_type = None
-	parent.hal_name = None
+	parent.board_0_type = None
+	parent.board_1_type = None
+	parent.board_2_type = None
+	parent.board_0_hal_name = None
+	parent.board_1_hal_name = None
+	parent.board_2_hal_name = None
 	parent.board_hal_name = None
 	parent.mesaflash_name = None
 
