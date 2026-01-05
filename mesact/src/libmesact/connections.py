@@ -12,6 +12,8 @@ from libmesact import boards
 from libmesact import daughters
 from libmesact import sscards
 from libmesact import flash
+from libmesact import dialogs
+
 
 def connect(parent):
 	# Menu Items
@@ -72,6 +74,8 @@ def connect(parent):
 
 	# Help Menu
 	parent.actionDocuments.triggered.connect(partial(utilities.open_manual, parent))
+	parent.actionCheckUpdates.triggered.connect(partial(utilities.check_updates, parent))
+	parent.actionAboutMesaCT.triggered.connect(partial(dialogs.about_dialog, parent))
 
 	# Machine Tab
 	parent.machine_name_le.textChanged[str].connect(partial(utilities.machine_name_changed, parent))

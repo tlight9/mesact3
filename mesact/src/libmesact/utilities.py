@@ -1,4 +1,4 @@
-import os, subprocess
+import os, subprocess, requests
 from datetime import datetime
 from functools import partial
 
@@ -90,12 +90,13 @@ def changed(parent): # if anything is changed add * to title
 	parent.status_lb.setText('Config Changed')
 	parent.actionBuild.setText('Build Config *')
 
-def backup_files(parent, config_path=None):
-	parent.main_tw.setCurrentIndex(11)
-	if not config_path:
-		config_path = parent.config_path
-	if not os.path.exists(config_path):
-		parent.info_pte.setPlainText('Nothing found to Back Up')
+def backup_files(parent):
+	parent.main_tw.setCurrentIndex(10)
+	if not parent.config_path: # no machine name
+		parent.info_pte.setPlainText('A Machine Name must be specified to get a path')
+		return
+	elif not os.path.exists(parent.config_path):
+		parent.info_pte.setPlainText(f'There is nothing to back up.\nThe path {parent.config_path} does not exist.')
 		return
 	backup_dir = os.path.join(config_path, 'backups')
 	if not os.path.exists(backup_dir):
@@ -118,5 +119,19 @@ def add_mdi_row(parent):
 	parent.mdi_grid_layout.addWidget(le, rows, 1)
 	getattr(parent, f'mdi_le_{rows}').setFocus()
 	getattr(parent, f'mdi_le_{rows}').returnPressed.connect(partial(add_mdi_row, parent))
+
+def check_updates(parent):
+	response = requests.get(f"https://api.github.com/repos/jethornton/mesact/releases/latest")
+	repo_version = response.json()["name"]
+	print(f'repo_version {repo_version}')
+	parent.main_tw.setCurrentIndex(10)
+	if tuple(repo_version.split('.')) > tuple(parent.version.split('.')):
+		parent.info_pte.appendPlainText(f'This version {parent.version} is older than the latest release {repo_version}')
+	elif tuple(repo_version.split('.')) == tuple(parent.version.split('.')):
+		parent.info_pte.appendPlainText(f'This version {parent.version} is the same as the latest release {repo_version}')
+	elif tuple(repo_version.split('.')) < tuple(parent.version.split('.')):
+		parent.info_pte.appendPlainText(f'This version {parent.version} is newer than the latest release {repo_version}')
+
+
 
 

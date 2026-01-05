@@ -4,6 +4,12 @@ from libmesact import openini
 
 def setup_vars(parent):
 	parent.config_path = ''
+	parent.board_name = None
+	parent.board_interface = None
+	parent.board_type = None
+	parent.hal_name = None
+	parent.board_hal_name = None
+	parent.mesaflash_name = None
 
 def hide_tabs(parent):
 	# set main tab visibility

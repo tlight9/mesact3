@@ -27,7 +27,7 @@ def get_results(parent, prompt, result, viewport, task=None):
 
 def check_ip(parent):
 	if not parent.address_cb.currentData():
-		dialogs.errorMsgOk('An IP address must be selected', 'Error!')
+		dialogs.msg_error_ok(parent, 'An IP address must be selected', 'Error!')
 		parent.main_tw.setCurrentIndex(0)
 		parent.address_cb.setFocus()
 		return False
@@ -45,7 +45,7 @@ def firmware_changed(parent):
 
 def find_ip_board(parent):
 	if utilities.check_emc():
-		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to search for a board', 'Error')
+		dialogs.msg_error_ok(parent, f'LinuxCNC must NOT be running\n to search for a board', 'Error')
 		return
 	addresses = ['10.10.10.10', '192.168.1.121']
 	parent.verify_pte.setPlainText('Looking for IP boards')
@@ -68,7 +68,7 @@ def find_ip_board(parent):
 def verify_ip_board(parent): # make me toss up the error message and return False
 	board_name = parent.board_cb.currentText()
 	if utilities.check_emc():
-		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {board_name}', 'Error')
+		dialogs.msg_error_ok(parent, f'LinuxCNC must NOT be running\n to read the {board_name}', 'Error')
 		return
 	if check_ip(parent):
 		address = parent.address_cb.currentText()
@@ -76,7 +76,7 @@ def verify_ip_board(parent): # make me toss up the error message and return Fals
 		output = subprocess.run(cmd, capture_output=True, text=True)
 		if output.returncode != 0:
 			msg = (f'No Board found at {address}')
-			dialogs.errorMsgOk(msg, 'Error')
+			dialogs.msg_error_ok(parent, msg, 'Error')
 			return
 		cmd = ['mesaflash', '--device', 'ether', '--addr', address]
 		output = subprocess.run(cmd, capture_output=True, text=True)
@@ -85,14 +85,14 @@ def verify_ip_board(parent): # make me toss up the error message and return Fals
 			connected_board = output.stdout.split()[2]
 		else:
 			msg = (f'Device found at {address}\nis not a Mesa Board')
-			dialogs.errorMsgOk(msg, 'Error')
+			dialogs.msg_error_ok(parent, msg, 'Error')
 			return
 		if selected_board == connected_board:
 			return True
 		else:
 			msg = (f'The selected {selected_board} board\n'
 			f'does not match the\nconnected {connected_board} board')
-			dialogs.errorMsgOk(msg, 'Error')
+			dialogs.msg_error_ok(parent, msg, 'Error')
 			return False
 
 def verify_board(parent): # needs to use Popen for password
@@ -100,8 +100,15 @@ def verify_board(parent): # needs to use Popen for password
 	cmd = []
 	prompt = None
 	if utilities.check_emc():
-		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {board_name}', 'Error')
+		dialogs.msg_error_ok(parent, f'LinuxCNC must NOT be running\n to read the {board_name}', 'Error')
 		return
+
+	if not parent.board_cb.currentData(): # no board selected
+			msg = ('No Board is selected in the Mesa Setup\n'
+			'group box. Select a board to Verify Board.')
+			dialogs.msg_error_ok(parent, msg, 'Error')
+			return
+
 	if parent.board_interface == 'eth':
 		if verify_ip_board(parent):
 			ipAddress = parent.address_cb.currentText()
