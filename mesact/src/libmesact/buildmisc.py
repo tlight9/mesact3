@@ -1,4 +1,4 @@
-import os, traceback
+import os, shutil
 from datetime import datetime
 
 def build(parent):
@@ -76,145 +76,31 @@ def build(parent):
 	# create the pyvcp panel if checked and not there
 	if parent.pyvcp_cb.isChecked():
 		pyvcp_file = os.path.join(parent.config_path, 'pyvcp.xml')
-			if not os.path.isfile(pyvcp_file):
-				contents = ["<?xml version='1.0' encoding='UTF-8'?>\n"]
-				contents.append('<pyvcp>\n')
-				contents.append('<!--\n')
-				contents.append('Build your PyVCP panel between the <pyvcp></pyvcp> tags.\n')
-				contents.append('Make sure your outside the comment tags.\n')
-				contents.append('The contents of this file will not be overwritten\n')
-				contents.append('when you run the configuration tool again.\n')
-				contents.append('	<label>\n')
-				contents.append('		<text>"This is a Sample Label:"</text>\n')
-				contents.append('		<font>("Helvetica",10)</font>\n')
-				contents.append('	</label>\n')
-				contents.append('</pyvcp>\n')
-				with open(pyvcp_file, 'w') as f:
-					f.writelines(contents)
-					parent.info_pte.appendPlainText(f'Building {pyvcp_file}')
+		if not os.path.isfile(pyvcp_file):
+			contents = ["<?xml version='1.0' encoding='UTF-8'?>\n"]
+			contents.append('<pyvcp>\n')
+			contents.append('<!--\n')
+			contents.append('Build your PyVCP panel between the <pyvcp></pyvcp> tags.\n')
+			contents.append('Make sure your outside the comment tags.\n')
+			contents.append('The contents of this file will not be overwritten\n')
+			contents.append('when you run the configuration tool again.\n')
+			contents.append('-->\n')
+			contents.append('	<label>\n')
+			contents.append('		<text>"This is a Sample Label:"</text>\n')
+			contents.append('		<font>("Helvetica",10)</font>\n')
+			contents.append('	</label>\n')
+			contents.append('</pyvcp>\n')
+			with open(pyvcp_file, 'w') as f:
+				f.writelines(contents)
+				parent.info_pte.appendPlainText(f'Building {pyvcp_file}')
 
 	if parent.ladder_gb.isChecked():
 		ladder_file = os.path.join(parent.config_path, 'ladder.clp')
-			if not os.path.isfile(ladder_file):
-				contents = """_FILES_CLASSICLADDER
-_FILE-symbols.csv
-#VER=1.0
-_/FILE-symbols.csv
-_FILE-modbusioconf.csv
-#VER=1.0
-_/FILE-modbusioconf.csv
-_FILE-com_params.txt
-MODBUS_MASTER_SERIAL_PORT=
-MODBUS_MASTER_SERIAL_SPEED=9600
-MODBUS_ELEMENT_OFFSET=0
-MODBUS_MASTER_SERIAL_USE_RTS_TO_SEND=0
-MODBUS_MASTER_TIME_INTER_FRAME=100
-MODBUS_MASTER_TIME_OUT_RECEIPT=500
-MODBUS_MASTER_TIME_AFTER_TRANSMIT=0
-MODBUS_DEBUG_LEVEL=0
-MODBUS_MAP_COIL_READ=0
-MODBUS_MAP_COIL_WRITE=0
-MODBUS_MAP_INPUT=0
-MODBUS_MAP_HOLDING=0
-MODBUS_MAP_REGISTER_READ=0
-MODBUS_MAP_REGISTER_WRITE=0
-_/FILE-com_params.txt
-_FILE-timers_iec.csv
-1,0,0
-1,0,0
-1,0,0
-1,0,0
-1,0,0
-1,0,0
-1,0,0
-1,0,0
-1,0,0
-1,0,0
-_/FILE-timers_iec.csv
-_FILE-timers.csv
-1,0
-1,0
-1,0
-1,0
-1,0
-1,0
-1,0
-1,0
-1,0
-1,0
-_/FILE-timers.csv
-_FILE-counters.csv
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-_/FILE-counters.csv
-_FILE-sections.csv
-#VER=1.0
-#NAME000=Prog1
-000,0,-1,0,0,0
-_/FILE-sections.csv
-_FILE-arithmetic_expressions.csv
-#VER=2.0
-_/FILE-arithmetic_expressions.csv
-_FILE-rung_0.csv
-#VER=2.0
-#LABEL=
-#COMMENT=
-#PREVRUNG=0
-#NEXTRUNG=0
-0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0
-0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0
-0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0
-0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0
-0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0
-0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0 , 0-0-0/0
-_/FILE-rung_0.csv
-_FILE-ioconf.csv
-#VER=1.0
-_/FILE-ioconf.csv
-_FILE-monostables.csv
-1,0
-1,0
-1,0
-1,0
-1,0
-1,0
-1,0
-1,0
-1,0
-1,0
-_/FILE-monostables.csv
-_FILE-sequential.csv
-#VER=1.0
-_/FILE-sequential.csv
-_FILE-general.txt
-PERIODIC_REFRESH=50
-SIZE_NBR_RUNGS=100
-SIZE_NBR_BITS=500
-SIZE_NBR_WORDS=100
-SIZE_NBR_TIMERS=10
-SIZE_NBR_MONOSTABLES=10
-SIZE_NBR_COUNTERS=10
-SIZE_NBR_TIMERS_IEC=10
-SIZE_NBR_PHYS_INPUTS=15
-SIZE_NBR_PHYS_OUTPUTS=15
-SIZE_NBR_ARITHM_EXPR=100
-SIZE_NBR_SECTIONS=10
-SIZE_NBR_SYMBOLS=100
-_/FILE-general.txt
-_/FILES_CLASSICLADDER
-"""
+		if not os.path.isfile(ladder_file):
+			source = os.path.join(parent.lib_path, 'ladder.clp')
+			if os.path.isfile(source):
+				shutil.copy(source, ladder_file)
 
-				with open(ladder_file, 'w') as f:
-					f.writelines(contents)
-					parent.info_pte.appendPlainText(f'Building {ladder_file}')
 
 
 
