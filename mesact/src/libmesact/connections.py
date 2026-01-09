@@ -101,7 +101,7 @@ def connect(parent):
 	parent.sample_7i97t_pb.clicked.connect(partial(samples.sample_7i97t, parent))
 
 	# Testing
-	parent.build_io_pb.clicked.connect(partial(buildio.build_io, parent))
+	parent.build_io_pb.clicked.connect(partial(buildio.build, parent))
 
 
 	# Firmware Tab
