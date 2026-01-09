@@ -52,8 +52,8 @@ def build(parent):
 	buildss.build(parent)
 	#buildmisc.build(parent)
 	#parent.mainTW.setCurrentIndex(11)
-	#parent.status_lb.setText('Saved')
-	#parent.actionBuild.setText('Build Config')
+	parent.status_lb.setText('Saved')
+	parent.actionBuild.setText('Build Config')
 
 
 

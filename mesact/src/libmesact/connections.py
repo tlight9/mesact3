@@ -1,6 +1,8 @@
 from functools import partial
 
 from PyQt6.QtGui import QAction, QIcon
+from PyQt6.QtWidgets import QPlainTextEdit, QLineEdit, QCheckBox
+from PyQt6.QtWidgets import QComboBox, QSpinBox, QDoubleSpinBox
 
 from libmesact import axes
 from libmesact import openini
@@ -139,5 +141,18 @@ def connect(parent):
 	parent.ss7i73_keypad_cb.currentIndexChanged.connect(partial(sscards.ss7i73_changed, parent))
 	parent.ss7i73lcd_cb.currentIndexChanged.connect(partial(sscards.ss7i73_changed, parent))
 
+	# Change Events
+	for child in parent.findChildren(QPlainTextEdit):
+		child.textChanged.connect(partial(utilities.changed, parent))
+	for child in parent.findChildren(QLineEdit):
+		child.textChanged.connect(partial(utilities.changed, parent))
+	for child in parent.findChildren(QComboBox):
+		child.currentIndexChanged.connect(partial(utilities.changed, parent))
+	for child in parent.findChildren(QSpinBox):
+		child.valueChanged.connect(partial(utilities.changed, parent))
+	for child in parent.findChildren(QDoubleSpinBox):
+		child.valueChanged.connect(partial(utilities.changed, parent))
+	for child in parent.findChildren(QCheckBox):
+		child.stateChanged.connect(partial(utilities.changed, parent))
 
 
