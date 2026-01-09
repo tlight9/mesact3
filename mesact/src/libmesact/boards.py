@@ -89,7 +89,7 @@ def changed(parent, index):
 			set_drives(parent, 6)
 			set_io(parent, 24, True, True, 8, True, False)
 			parent.board_interface = 'spi'
-			parent.board_0_type = '' # FIXME
+			parent.board_0_type = 'stepper'
 			parent.board_0_hal_name = '7c80'
 			parent.mesaflash_name = '7c80'
 			check_mesaflash(parent, (3,4,2))
@@ -106,7 +106,7 @@ def changed(parent, index):
 			set_drives(parent, 0)
 			set_io(parent, None, False, False, None, False, False)
 			parent.board_interface = 'spi'
-			parent.board_0_type = '' # FIXME
+			parent.board_0_type = 'mother'
 			parent.board_0_hal_name = '7c81'
 			parent.mesaflash_name = '7c81'
 			check_mesaflash(parent, (3,4,2))
