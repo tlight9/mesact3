@@ -52,6 +52,15 @@ halcmd show all hm2 > 7i76E-7i78-hm2-P1-pins.txt
 halcmd show all hm2 > 7i76E-7i78-hm2-P2-pins.txt
 
 halcmd show all hm2 > 7i76EU-hm2-pins.txt
+halcmd show all hm2 > 7i76EU-7i70-pins.txt
+halcmd show all hm2 > 7i76EU-7i71-pins.txt
+halcmd show all hm2 > 7i76EU-7i72-pins.txt
+halcmd show all hm2 > 7i76EU-7i73-5D-6D-7D-pins.txt
+halcmd show all hm2 > 7i76EU-7i73-5D-6U-7D-pins.txt
+halcmd show all hm2 > 7i76EU-7i73-5U-6D-7D-pins.txt
+halcmd show all hm2 > 7i76EU-7i73-5D-6D-7U-pins.txt
+halcmd show all hm2 > 7i76EU-7i83-pins.txt
+
 halcmd show all hm2 > 7i76EU-7i76-P1-pins.txt
 halcmd show all hm2 > 7i76EU-7i76-P2-pins.txt
 halcmd show all hm2 > 7i76EU-7i77-P1-pins.txt
