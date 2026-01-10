@@ -140,6 +140,7 @@ def connect(parent):
 
 
 	# Smart Serial Tab
+	parent.sserial_host_cb.currentIndexChanged.connect(partial(sscards.host_selected, parent))
 	parent.ss_card_cb.currentIndexChanged.connect(partial(sscards.card_changed, parent))
 	parent.ss7i73_keypad_cb.currentIndexChanged.connect(partial(sscards.ss7i73_changed, parent))
 	parent.ss7i73lcd_cb.currentIndexChanged.connect(partial(sscards.ss7i73_changed, parent))

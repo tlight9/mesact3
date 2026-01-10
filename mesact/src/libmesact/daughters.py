@@ -1,4 +1,5 @@
 
+from libmesact import sscards
 
 def changed(parent, index): # index is the combobox index
 	drive_tw = int(parent.sender().objectName()[-1])
@@ -46,6 +47,8 @@ def changed(parent, index): # index is the combobox index
 		setattr(parent, f'board_{drive_tw}_hal_name', None)
 		parent.main_tw.setTabVisible(main_tw_tab, False)
 		parent.main_tw.setTabText(main_tw_tab, '')
+
+	sscards.host_changed(parent)
 
 def set_drives(parent, drives, main_tw_tab, drive_tw, board):
 	parent.main_tw.setTabVisible(main_tw_tab, True)

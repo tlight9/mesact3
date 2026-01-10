@@ -7,6 +7,7 @@ def build(parent):
 	file_path = os.path.join(parent.config_path, 'sserial.hal')
 	parent.info_pte.appendPlainText(f'Building {file_path}')
 	ss_board = parent.ss_card_cb.currentData()
+	host_board = parent.sserial_host_cb.currentData()
 	if ss_board:
 		contents = []
 		contents = ['# This file was created with the Mesa Configuration Tool on ']
@@ -14,27 +15,40 @@ def build(parent):
 		contents.append('# If you make changes to this file DO NOT use the Configuration Tool\n')
 
 		match ss_board:
-			case '7i64':
-				contents.append(build_inputs(parent, ss_board, 24))
 			case '7i70':
-				contents.append(build_inputs(parent, ss_board, 48))
+				contents.append('\n# Inputs\n')
+				contents.extend(build_inputs(parent, host_board, ss_board, 48))
+			case '7i71':
+				contents.append('\n# Outputs\n')
+				contents.extend(build_outputs(parent, host_board, ss_board, 48))
+			case '7i72':
+				contents.append('\n# Outputs\n')
+				contents.extend(build_outputs(parent, host_board, ss_board, 48))
 
 
-def build_inputs(parent, ss_board, count):
+		create_file(parent, file_path, contents)
+
+def build_inputs(parent, host_board, ss_board, count):
 	inputs = []
 	for i in range(count):
 		if getattr(parent, f'ss{ss_board}in_' + str(i)).text() != 'Select':
 			key = getattr(parent, f'ss{ss_board}in_' + str(i)).text()
-			inputs.append(f'{io.inputs[key]} hm2_{mb}.0.{ss_board}.0.0.input-{i:02}\n')
+			inputs.append(f'{io.inputs[key]} hm2_{host_board}.0.{ss_board}.0.0.input-{i:02}\n')
 	return inputs
 
-def build_outputs(parent, count):
-	pass
+def build_outputs(parent, host_board, ss_board, count):
+	outputs = []
+	for i in range(count):
+		if getattr(parent, f'ss{ss_board}out_{i}').text() != 'Select':
+			key = getattr(parent, f'ss{ss_board}out_{i}').text()
+			outputs.append(f'{io.outputs[key]} hm2_{host_board}.0.{ss_board}.0.0.output-{i:02}\n')
+	return outputs
 
 
 
 
-def build_file(parent, file_path, contents):
+
+def create_file(parent, file_path, contents):
 	try:
 		with open(file_path, 'w') as f:
 			f.writelines(contents)

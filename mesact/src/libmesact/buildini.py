@@ -371,7 +371,8 @@ def build(parent):
 	if parent.ss_card_cb.currentData():
 		contents.append('\n[SSERIAL]\n')
 		contents.append('# DO NOT change the sserial they are used by the configuration tool\n')
-		contents.append(f'SS_CARD = {parent.ss_card_cb.currentText()}\n')
+		contents.append(f'HOST_BOARD = {parent.sserial_host_cb.currentText()}\n')
+		contents.append(f'SSERIAL_BOARD = {parent.ss_card_cb.currentText()}\n')
 
 	if parent.ss_card_cb.currentText() == '7i64':
 		# 24 ss7i64in_

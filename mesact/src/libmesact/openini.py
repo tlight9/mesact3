@@ -413,8 +413,11 @@ def load_ini(parent, ini_file=None): # FIXME not loading daughter board
 		for item in ini_list[start + 1:end + 1]:
 			if '=' in item:
 				key, value = [part.strip() for part in item.split('=', 1)]
-				if key == 'SS_CARD':
+
+				if key == 'SSERIAL_BOARD':
 					update(parent, 'ss_card_cb', value)
+				if key == 'HOST_BOARD':
+					update(parent, 'sserial_host_cb', value)
 				elif key.startswith('ss'):
 					update(parent, key, value)
 

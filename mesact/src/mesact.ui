@@ -42,7 +42,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>7</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -766,7 +766,7 @@ Spaces are replaced with underscore.</string>
         <item>
          <widget class="QTabWidget" name="firmware_tw">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="tab_13">
            <attribute name="title">
@@ -34803,10 +34803,10 @@ The 7I96S provides one analog output for spindle control. The analog output is a
            <property name="topMargin">
             <number>15</number>
            </property>
-           <item row="0" column="0">
-            <widget class="QComboBox" name="ss_card_cb"/>
-           </item>
            <item row="0" column="1">
+            <widget class="QComboBox" name="sserial_host_cb"/>
+           </item>
+           <item row="0" column="3">
             <widget class="QLabel" name="ss_info">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
@@ -34819,6 +34819,20 @@ The 7I96S provides one analog output for spindle control. The analog output is a
              </property>
              <property name="text">
               <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QComboBox" name="ss_card_cb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_681">
+             <property name="text">
+              <string>Host</string>
              </property>
             </widget>
            </item>
@@ -42248,7 +42262,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
             <item>
              <widget class="QTabWidget" name="ss_7iAO_tw">
               <property name="currentIndex">
-               <number>0</number>
+               <number>2</number>
               </property>
               <widget class="QWidget" name="tab_187">
                <attribute name="title">

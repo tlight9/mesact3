@@ -2,6 +2,7 @@
 
 from libmesact import utilities
 from libmesact import firmware
+from libmesact import sscards
 
 def changed(parent, index):
 	main_board = parent.sender().currentText()
@@ -320,6 +321,8 @@ def changed(parent, index):
 		if parent.mesaflash:
 			parent.read_hmid_gb.setEnabled(True)
 			firmware.load(parent)
+
+		sscards.host_changed(parent)
 
 	else: # no board selected
 		address(parent, None)

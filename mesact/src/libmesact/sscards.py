@@ -4,6 +4,30 @@ from PyQt6.QtGui import QAction
 
 from libmesact import menus
 
+def host_changed(parent):
+	parent.sserial_host_cb.clear()
+	board_list = []
+	board_list.append(parent.board_cb.currentData())
+	board_list.append(parent.daughter_cb_1.currentData())
+	board_list.append(parent.daughter_cb_2.currentData())
+
+	sserial_hosts = ['7c80', '7i76', '7i77', '7i76e', '7i76eu', '7i95', '7i95t',
+	'7i96', '7i97', '7i97t']
+
+	if any(item in board_list for item in sserial_hosts):
+		parent.sserial_host_cb.addItem('Select', False)
+		for board in board_list:
+			if board in sserial_hosts:
+				parent.sserial_host_cb.addItem(board, board)
+	else:
+		parent.sserial_host_cb.addItem('N/A')
+
+def host_selected(parent):
+	if parent.sserial_host_cb.currentData():
+		parent.ss_card_cb.setEnabled(True)
+	else:
+		parent.ss_card_cb.setEnabled(False)
+
 def card_changed(parent):
 	sscards = {
 	'Select':'No Card Selected',
