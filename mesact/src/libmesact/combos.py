@@ -147,9 +147,14 @@ def build_combos(parent):
 		['Push Pull', ['1', '1']],
 		]
 
+	for i in range(3):
+		for j in range(16):
+			for item in output_types:
+				getattr(parent, f'c{i}_output_type_{j}').addItem(item[0], item[1])
+
 	for i in range(16):
 		for item in output_types:
-			getattr(parent, f'c0_output_type_{i}').addItem(item[0], item[1])
+			getattr(parent, f'ss7i84_out_type_{i}').addItem(item[0], item[1])
 
 	# SS Card Tab
 	ss_boards = [
@@ -159,7 +164,7 @@ def build_combos(parent):
 		['7i72', '7i72'],
 		['7i73', '7i73'],
 		['7i83', '7i83'],
-		['7i84U', '7i84U'],
+		['7i84U', '7i84u'],
 		['7i87', '7i87'],
 		['7iAO', '7iAO']
 		]
@@ -169,7 +174,6 @@ def build_combos(parent):
 
 	parent.ss_card_cb.model().item(4).setEnabled(False)
 	parent.ss_card_cb.model().item(5).setEnabled(False)
-	parent.ss_card_cb.model().item(6).setEnabled(False)
 	parent.ss_card_cb.model().item(7).setEnabled(False)
 	parent.ss_card_cb.model().item(8).setEnabled(False)
 

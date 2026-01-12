@@ -7,6 +7,7 @@ def build(parent):
 	file_path = os.path.join(parent.config_path, 'sserial.hal')
 	parent.info_pte.appendPlainText(f'Building {file_path}')
 	ss_board = parent.ss_card_cb.currentData()
+	#print(ss_board)
 	host_board = parent.sserial_host_cb.currentData()
 	if ss_board:
 		contents = []
@@ -37,6 +38,11 @@ def build(parent):
 			case '7i72':
 				contents.append('\n# 7i72 Outputs\n')
 				contents.extend(build_outputs(parent, host_board, ss_board, 48))
+			case '7i84u':
+				contents.append('\n# 7i84U Inputs\n')
+				contents.extend(build_inputs(parent, host_board, ss_board, 32))
+				contents.append('\n# 7i84U Outputs\n')
+				contents.extend(build_outputs(parent, host_board, ss_board, 16))
 
 
 		create_file(parent, file_path, contents)

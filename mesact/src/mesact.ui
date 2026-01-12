@@ -42,7 +42,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>7</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -23630,7 +23630,7 @@ Leave blank to home the joint manually.</string>
         <item>
          <widget class="QTabWidget" name="c2_board_tw">
           <property name="currentIndex">
-           <number>0</number>
+           <number>8</number>
           </property>
           <widget class="QWidget" name="tab_86">
            <attribute name="title">
@@ -39641,7 +39641,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
               </property>
               <widget class="QWidget" name="tab_178">
                <attribute name="title">
-                <string>7i84 Inputs</string>
+                <string>7i84U Inputs</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_386">
                 <item row="0" column="0">
@@ -39661,7 +39661,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="0" column="1">
-                    <widget class="QPushButton" name="ss7i84in_0">
+                    <widget class="QPushButton" name="ss7i84uin_0">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -39684,7 +39684,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="1" column="1">
-                    <widget class="QPushButton" name="ss7i84in_1">
+                    <widget class="QPushButton" name="ss7i84uin_1">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -39707,7 +39707,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="2" column="1">
-                    <widget class="QPushButton" name="ss7i84in_2">
+                    <widget class="QPushButton" name="ss7i84uin_2">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -39730,7 +39730,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="3" column="1">
-                    <widget class="QPushButton" name="ss7i84in_3">
+                    <widget class="QPushButton" name="ss7i84uin_3">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -39753,7 +39753,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="4" column="1">
-                    <widget class="QPushButton" name="ss7i84in_4">
+                    <widget class="QPushButton" name="ss7i84uin_4">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -39776,7 +39776,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="5" column="1">
-                    <widget class="QPushButton" name="ss7i84in_5">
+                    <widget class="QPushButton" name="ss7i84uin_5">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -39799,7 +39799,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="6" column="1">
-                    <widget class="QPushButton" name="ss7i84in_6">
+                    <widget class="QPushButton" name="ss7i84uin_6">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -39822,7 +39822,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="7" column="1">
-                    <widget class="QPushButton" name="ss7i84in_7">
+                    <widget class="QPushButton" name="ss7i84uin_7">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -39854,7 +39854,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="0" column="1">
-                    <widget class="QPushButton" name="ss7i84in_8">
+                    <widget class="QPushButton" name="ss7i84uin_8">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -39877,7 +39877,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="1" column="1">
-                    <widget class="QPushButton" name="ss7i84in_9">
+                    <widget class="QPushButton" name="ss7i84uin_9">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -39900,7 +39900,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="2" column="1">
-                    <widget class="QPushButton" name="ss7i84in_10">
+                    <widget class="QPushButton" name="ss7i84uin_10">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -39923,7 +39923,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="3" column="1">
-                    <widget class="QPushButton" name="ss7i84in_11">
+                    <widget class="QPushButton" name="ss7i84uin_11">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -39946,7 +39946,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="4" column="1">
-                    <widget class="QPushButton" name="ss7i84in_12">
+                    <widget class="QPushButton" name="ss7i84uin_12">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -39969,7 +39969,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="5" column="1">
-                    <widget class="QPushButton" name="ss7i84in_13">
+                    <widget class="QPushButton" name="ss7i84uin_13">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -39992,7 +39992,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="6" column="1">
-                    <widget class="QPushButton" name="ss7i84in_14">
+                    <widget class="QPushButton" name="ss7i84uin_14">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40015,7 +40015,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="7" column="1">
-                    <widget class="QPushButton" name="ss7i84in_15">
+                    <widget class="QPushButton" name="ss7i84uin_15">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40047,7 +40047,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="0" column="1">
-                    <widget class="QPushButton" name="ss7i84in_16">
+                    <widget class="QPushButton" name="ss7i84uin_16">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40070,7 +40070,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="1" column="1">
-                    <widget class="QPushButton" name="ss7i84in_17">
+                    <widget class="QPushButton" name="ss7i84uin_17">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40093,7 +40093,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="2" column="1">
-                    <widget class="QPushButton" name="ss7i84in_18">
+                    <widget class="QPushButton" name="ss7i84uin_18">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40116,7 +40116,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="3" column="1">
-                    <widget class="QPushButton" name="ss7i84in_19">
+                    <widget class="QPushButton" name="ss7i84uin_19">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40139,7 +40139,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="4" column="1">
-                    <widget class="QPushButton" name="ss7i84in_20">
+                    <widget class="QPushButton" name="ss7i84uin_20">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40162,7 +40162,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="5" column="1">
-                    <widget class="QPushButton" name="ss7i84in_21">
+                    <widget class="QPushButton" name="ss7i84uin_21">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40185,7 +40185,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="6" column="1">
-                    <widget class="QPushButton" name="ss7i84in_22">
+                    <widget class="QPushButton" name="ss7i84uin_22">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40208,7 +40208,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="7" column="1">
-                    <widget class="QPushButton" name="ss7i84in_23">
+                    <widget class="QPushButton" name="ss7i84uin_23">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40240,7 +40240,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="0" column="1">
-                    <widget class="QPushButton" name="ss7i84in_24">
+                    <widget class="QPushButton" name="ss7i84uin_24">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40263,7 +40263,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="1" column="1">
-                    <widget class="QPushButton" name="ss7i84in_25">
+                    <widget class="QPushButton" name="ss7i84uin_25">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40286,7 +40286,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="2" column="1">
-                    <widget class="QPushButton" name="ss7i84in_26">
+                    <widget class="QPushButton" name="ss7i84uin_26">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40309,7 +40309,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="3" column="1">
-                    <widget class="QPushButton" name="ss7i84in_27">
+                    <widget class="QPushButton" name="ss7i84uin_27">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40332,7 +40332,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="4" column="1">
-                    <widget class="QPushButton" name="ss7i84in_28">
+                    <widget class="QPushButton" name="ss7i84uin_28">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40355,7 +40355,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="5" column="1">
-                    <widget class="QPushButton" name="ss7i84in_29">
+                    <widget class="QPushButton" name="ss7i84uin_29">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40378,7 +40378,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="6" column="1">
-                    <widget class="QPushButton" name="ss7i84in_30">
+                    <widget class="QPushButton" name="ss7i84uin_30">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40401,7 +40401,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="7" column="1">
-                    <widget class="QPushButton" name="ss7i84in_31">
+                    <widget class="QPushButton" name="ss7i84uin_31">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40420,7 +40420,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
               </widget>
               <widget class="QWidget" name="tab_179">
                <attribute name="title">
-                <string>7i84 Outputs</string>
+                <string>7i84U Outputs</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_391">
                 <item row="0" column="1">
@@ -40445,19 +40445,6 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="1">
-                    <widget class="QPushButton" name="ss7i84out_8">
-                     <property name="minimumSize">
-                      <size>
-                       <width>125</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="1" column="0">
                     <widget class="QLabel" name="label_1401">
                      <property name="text">
@@ -40468,23 +40455,30 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="1">
-                    <widget class="QPushButton" name="ss7i84out_9">
-                     <property name="minimumSize">
-                      <size>
-                       <width>125</width>
-                       <height>0</height>
-                      </size>
-                     </property>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_1397">
                      <property name="text">
-                      <string>Select</string>
+                      <string>12</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="0">
-                    <widget class="QLabel" name="label_1402">
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_1403">
                      <property name="text">
-                      <string>10</string>
+                      <string>13</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="0">
+                    <widget class="QLabel" name="label_1400">
+                     <property name="text">
+                      <string>15</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -40492,7 +40486,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="2" column="1">
-                    <widget class="QPushButton" name="ss7i84out_10">
+                    <widget class="QPushButton" name="ss7i84uout_10">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40515,53 +40509,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                     </widget>
                    </item>
                    <item row="3" column="1">
-                    <widget class="QPushButton" name="ss7i84out_11">
-                     <property name="minimumSize">
-                      <size>
-                       <width>125</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="4" column="0">
-                    <widget class="QLabel" name="label_1397">
-                     <property name="text">
-                      <string>12</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="4" column="1">
-                    <widget class="QPushButton" name="ss7i84out_12">
-                     <property name="minimumSize">
-                      <size>
-                       <width>125</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="0">
-                    <widget class="QLabel" name="label_1403">
-                     <property name="text">
-                      <string>13</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="1">
-                    <widget class="QPushButton" name="ss7i84out_13">
+                    <widget class="QPushButton" name="ss7i84uout_11">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40583,8 +40531,8 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                      </property>
                     </widget>
                    </item>
-                   <item row="6" column="1">
-                    <widget class="QPushButton" name="ss7i84out_14">
+                   <item row="5" column="1">
+                    <widget class="QPushButton" name="ss7i84uout_13">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40596,18 +40544,18 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="0">
-                    <widget class="QLabel" name="label_1400">
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_1402">
                      <property name="text">
-                      <string>15</string>
+                      <string>10</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="1">
-                    <widget class="QPushButton" name="ss7i84out_15">
+                   <item row="6" column="1">
+                    <widget class="QPushButton" name="ss7i84uout_14">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40618,6 +40566,82 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                       <string>Select</string>
                      </property>
                     </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="ss7i84uout_9">
+                     <property name="minimumSize">
+                      <size>
+                       <width>125</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QPushButton" name="ss7i84uout_12">
+                     <property name="minimumSize">
+                      <size>
+                       <width>125</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="ss7i84uout_8">
+                     <property name="minimumSize">
+                      <size>
+                       <width>125</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="1">
+                    <widget class="QPushButton" name="ss7i84uout_15">
+                     <property name="minimumSize">
+                      <size>
+                       <width>125</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QComboBox" name="ss7i84_out_type_8"/>
+                   </item>
+                   <item row="1" column="2">
+                    <widget class="QComboBox" name="ss7i84_out_type_9"/>
+                   </item>
+                   <item row="2" column="2">
+                    <widget class="QComboBox" name="ss7i84_out_type_10"/>
+                   </item>
+                   <item row="3" column="2">
+                    <widget class="QComboBox" name="ss7i84_out_type_11"/>
+                   </item>
+                   <item row="4" column="2">
+                    <widget class="QComboBox" name="ss7i84_out_type_12"/>
+                   </item>
+                   <item row="5" column="2">
+                    <widget class="QComboBox" name="ss7i84_out_type_13"/>
+                   </item>
+                   <item row="6" column="2">
+                    <widget class="QComboBox" name="ss7i84_out_type_14"/>
+                   </item>
+                   <item row="7" column="2">
+                    <widget class="QComboBox" name="ss7i84_out_type_15"/>
                    </item>
                   </layout>
                  </widget>
@@ -40634,87 +40658,8 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                    <string>Outputs 0 - 7 TB3</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_392">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1384">
-                     <property name="text">
-                      <string>0</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QPushButton" name="ss7i84out_0">
-                     <property name="minimumSize">
-                      <size>
-                       <width>125</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="label_1383">
-                     <property name="text">
-                      <string>1</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="QPushButton" name="ss7i84out_1">
-                     <property name="minimumSize">
-                      <size>
-                       <width>125</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="0">
-                    <widget class="QLabel" name="label_1394">
-                     <property name="text">
-                      <string>2</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="2" column="1">
-                    <widget class="QPushButton" name="ss7i84out_2">
-                     <property name="minimumSize">
-                      <size>
-                       <width>125</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="0">
-                    <widget class="QLabel" name="label_1395">
-                     <property name="text">
-                      <string>3</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="1">
-                    <widget class="QPushButton" name="ss7i84out_3">
+                    <widget class="QPushButton" name="ss7i84uout_2">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40736,31 +40681,8 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                      </property>
                     </widget>
                    </item>
-                   <item row="4" column="1">
-                    <widget class="QPushButton" name="ss7i84out_4">
-                     <property name="minimumSize">
-                      <size>
-                       <width>125</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="0">
-                    <widget class="QLabel" name="label_1381">
-                     <property name="text">
-                      <string>5</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="1">
-                    <widget class="QPushButton" name="ss7i84out_5">
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="ss7i84uout_1">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40782,8 +40704,67 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                      </property>
                     </widget>
                    </item>
+                   <item row="5" column="1">
+                    <widget class="QPushButton" name="ss7i84uout_5">
+                     <property name="minimumSize">
+                      <size>
+                       <width>125</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_1381">
+                     <property name="text">
+                      <string>5</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="ss7i84uout_0">
+                     <property name="minimumSize">
+                      <size>
+                       <width>125</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_1394">
+                     <property name="text">
+                      <string>2</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QPushButton" name="ss7i84uout_4">
+                     <property name="minimumSize">
+                      <size>
+                       <width>125</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
                    <item row="6" column="1">
-                    <widget class="QPushButton" name="ss7i84out_6">
+                    <widget class="QPushButton" name="ss7i84uout_6">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40805,8 +40786,18 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="1">
-                    <widget class="QPushButton" name="ss7i84out_7">
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="label_1395">
+                     <property name="text">
+                      <string>3</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QPushButton" name="ss7i84uout_3">
                      <property name="minimumSize">
                       <size>
                        <width>125</width>
@@ -40817,6 +40808,63 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
                       <string>Select</string>
                      </property>
                     </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1384">
+                     <property name="text">
+                      <string>0</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_1383">
+                     <property name="text">
+                      <string>1</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="1">
+                    <widget class="QPushButton" name="ss7i84uout_7">
+                     <property name="minimumSize">
+                      <size>
+                       <width>125</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QComboBox" name="ss7i84_out_type_0"/>
+                   </item>
+                   <item row="1" column="2">
+                    <widget class="QComboBox" name="ss7i84_out_type_1"/>
+                   </item>
+                   <item row="2" column="2">
+                    <widget class="QComboBox" name="ss7i84_out_type_2"/>
+                   </item>
+                   <item row="3" column="2">
+                    <widget class="QComboBox" name="ss7i84_out_type_3"/>
+                   </item>
+                   <item row="4" column="2">
+                    <widget class="QComboBox" name="ss7i84_out_type_4"/>
+                   </item>
+                   <item row="5" column="2">
+                    <widget class="QComboBox" name="ss7i84_out_type_5"/>
+                   </item>
+                   <item row="6" column="2">
+                    <widget class="QComboBox" name="ss7i84_out_type_6"/>
+                   </item>
+                   <item row="7" column="2">
+                    <widget class="QComboBox" name="ss7i84_out_type_7"/>
                    </item>
                   </layout>
                  </widget>
@@ -45784,54 +45832,54 @@ auto enp2s0
   <tabstop>ss7i73out_1</tabstop>
   <tabstop>ss_7i73_tw</tabstop>
   <tabstop>ss_7i84tw</tabstop>
-  <tabstop>ss7i84in_0</tabstop>
-  <tabstop>ss7i84in_1</tabstop>
-  <tabstop>ss7i84in_2</tabstop>
-  <tabstop>ss7i84in_3</tabstop>
-  <tabstop>ss7i84in_4</tabstop>
-  <tabstop>ss7i84in_5</tabstop>
-  <tabstop>ss7i84in_6</tabstop>
-  <tabstop>ss7i84in_7</tabstop>
-  <tabstop>ss7i84in_8</tabstop>
-  <tabstop>ss7i84in_9</tabstop>
-  <tabstop>ss7i84in_10</tabstop>
-  <tabstop>ss7i84in_11</tabstop>
-  <tabstop>ss7i84in_12</tabstop>
-  <tabstop>ss7i84in_13</tabstop>
-  <tabstop>ss7i84in_14</tabstop>
-  <tabstop>ss7i84in_15</tabstop>
-  <tabstop>ss7i84in_16</tabstop>
-  <tabstop>ss7i84in_17</tabstop>
-  <tabstop>ss7i84in_18</tabstop>
-  <tabstop>ss7i84in_19</tabstop>
-  <tabstop>ss7i84in_20</tabstop>
-  <tabstop>ss7i84in_21</tabstop>
-  <tabstop>ss7i84in_22</tabstop>
-  <tabstop>ss7i84in_23</tabstop>
-  <tabstop>ss7i84in_24</tabstop>
-  <tabstop>ss7i84in_25</tabstop>
-  <tabstop>ss7i84in_26</tabstop>
-  <tabstop>ss7i84in_27</tabstop>
-  <tabstop>ss7i84in_28</tabstop>
-  <tabstop>ss7i84in_29</tabstop>
-  <tabstop>ss7i84in_30</tabstop>
-  <tabstop>ss7i84in_31</tabstop>
-  <tabstop>ss7i84out_0</tabstop>
-  <tabstop>ss7i84out_1</tabstop>
-  <tabstop>ss7i84out_2</tabstop>
-  <tabstop>ss7i84out_3</tabstop>
-  <tabstop>ss7i84out_4</tabstop>
-  <tabstop>ss7i84out_5</tabstop>
-  <tabstop>ss7i84out_6</tabstop>
-  <tabstop>ss7i84out_7</tabstop>
-  <tabstop>ss7i84out_8</tabstop>
-  <tabstop>ss7i84out_9</tabstop>
-  <tabstop>ss7i84out_10</tabstop>
-  <tabstop>ss7i84out_11</tabstop>
-  <tabstop>ss7i84out_12</tabstop>
-  <tabstop>ss7i84out_13</tabstop>
-  <tabstop>ss7i84out_14</tabstop>
-  <tabstop>ss7i84out_15</tabstop>
+  <tabstop>ss7i84uin_0</tabstop>
+  <tabstop>ss7i84uin_1</tabstop>
+  <tabstop>ss7i84uin_2</tabstop>
+  <tabstop>ss7i84uin_3</tabstop>
+  <tabstop>ss7i84uin_4</tabstop>
+  <tabstop>ss7i84uin_5</tabstop>
+  <tabstop>ss7i84uin_6</tabstop>
+  <tabstop>ss7i84uin_7</tabstop>
+  <tabstop>ss7i84uin_8</tabstop>
+  <tabstop>ss7i84uin_9</tabstop>
+  <tabstop>ss7i84uin_10</tabstop>
+  <tabstop>ss7i84uin_11</tabstop>
+  <tabstop>ss7i84uin_12</tabstop>
+  <tabstop>ss7i84uin_13</tabstop>
+  <tabstop>ss7i84uin_14</tabstop>
+  <tabstop>ss7i84uin_15</tabstop>
+  <tabstop>ss7i84uin_16</tabstop>
+  <tabstop>ss7i84uin_17</tabstop>
+  <tabstop>ss7i84uin_18</tabstop>
+  <tabstop>ss7i84uin_19</tabstop>
+  <tabstop>ss7i84uin_20</tabstop>
+  <tabstop>ss7i84uin_21</tabstop>
+  <tabstop>ss7i84uin_22</tabstop>
+  <tabstop>ss7i84uin_23</tabstop>
+  <tabstop>ss7i84uin_24</tabstop>
+  <tabstop>ss7i84uin_25</tabstop>
+  <tabstop>ss7i84uin_26</tabstop>
+  <tabstop>ss7i84uin_27</tabstop>
+  <tabstop>ss7i84uin_28</tabstop>
+  <tabstop>ss7i84uin_29</tabstop>
+  <tabstop>ss7i84uin_30</tabstop>
+  <tabstop>ss7i84uin_31</tabstop>
+  <tabstop>ss7i84uout_0</tabstop>
+  <tabstop>ss7i84uout_1</tabstop>
+  <tabstop>ss7i84uout_2</tabstop>
+  <tabstop>ss7i84uout_3</tabstop>
+  <tabstop>ss7i84uout_4</tabstop>
+  <tabstop>ss7i84uout_5</tabstop>
+  <tabstop>ss7i84uout_6</tabstop>
+  <tabstop>ss7i84uout_7</tabstop>
+  <tabstop>ss7i84uout_8</tabstop>
+  <tabstop>ss7i84uout_9</tabstop>
+  <tabstop>ss7i84uout_10</tabstop>
+  <tabstop>ss7i84uout_11</tabstop>
+  <tabstop>ss7i84uout_12</tabstop>
+  <tabstop>ss7i84uout_13</tabstop>
+  <tabstop>ss7i84uout_14</tabstop>
+  <tabstop>ss7i84uout_15</tabstop>
   <tabstop>ss7i87in_0</tabstop>
   <tabstop>ss7i87in_1</tabstop>
   <tabstop>ss7i87in_2</tabstop>
